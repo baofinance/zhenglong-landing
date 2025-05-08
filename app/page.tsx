@@ -939,7 +939,7 @@ export default function Home() {
               </h2>
               <p className="text-lg text-[#F5F5F5]/80 leading-relaxed tracking-wide font-light max-w-3xl mx-auto mb-16 text-center">
                 Zhenglong Protocol empowers innovation by tokenizing any
-                reliable data source into yield-generating markets. If there's
+                reliable data source into yield-generating markets. If there&apos;s
                 reliable price data and market demand, it can be tokenized.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto items-stretch">
