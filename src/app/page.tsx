@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { Geo } from "next/font/google";
-import TokenList from "../components/TokenList";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -61,7 +60,7 @@ const UseCaseBox = ({
         }`}
       >
         {/* Front Side */}
-        <div className="absolute inset-0 h-full w-full bg-[#4A7C59]/20 p-6 pt-10 shadow-[0_0_15px_rgba(74,124,89,0.1)] border border-[#4A7C59]/20 flex flex-col items-center justify-center transition-all relative [backface-visibility:hidden]">
+        <div className="absolute inset-0 h-full w-full bg-[#4A7C59]/80 p-6 pt-10 shadow-[0_0_15px_rgba(74,124,89,0.1)] border border-[#4A7C59]/20 flex flex-col items-center justify-center transition-all relative [backface-visibility:hidden]">
           <span
             className={`text-3xl text-[#F5F5F5]/80 text-center uppercase tracking-wider font-semibold ${geo.className}`}
           >
@@ -82,13 +81,58 @@ const UseCaseBox = ({
           </svg>
         </div>
         {/* Back Side */}
-        <div className="absolute inset-0 h-full w-full bg-black/90 p-6 pt-10 shadow-[0_0_15px_rgba(74,124,89,0.1)] border border-[#4A7C59]/20 flex flex-col items-center justify-center transition-all [transform:rotateY(180deg)] [backface-visibility:hidden]">
+        <div className="absolute inset-0 h-full w-full bg-black p-6 pt-10 shadow-[0_0_15px_rgba(74,124,89,0.1)] border border-[#4A7C59]/20 flex flex-col items-center justify-center transition-all [transform:rotateY(180deg)] [backface-visibility:hidden]">
           <div className="text-[#F5F5F5]/80 text-base leading-relaxed mb-2 text-center">
             {summary}
           </div>
           <div className="text-[#F5F5F5]/60 text-sm leading-relaxed text-center">
             {details}
           </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Replace the static green cards with flip cards
+const FlipCard = ({
+  token,
+  explanation,
+  geoClass,
+  className,
+}: {
+  token: string;
+  explanation: string;
+  geoClass: string;
+  className?: string;
+}) => {
+  const [flipped, setFlipped] = useState(false);
+  return (
+    <div
+      className={`w-48 h-16 cursor-pointer [perspective:1000px] ${className}`}
+      onMouseEnter={() => setFlipped(true)}
+      onMouseLeave={() => setFlipped(false)}
+      tabIndex={0}
+      onFocus={() => setFlipped(true)}
+      onBlur={() => setFlipped(false)}
+      onClick={() => setFlipped((f) => !f)}
+    >
+      <div
+        className={`relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] ${
+          flipped ? "[transform:rotateY(180deg)]" : "[transform:rotateY(0deg)]"
+        }`}
+      >
+        {/* Front Side */}
+        <div className="absolute inset-0 w-full h-full bg-[#4A7C59] shadow flex items-center justify-center [backface-visibility:hidden]">
+          <span
+            className={`text-white text-lg font-semibold tracking-wider uppercase break-words text-center ${geoClass}`}
+          >
+            {token}
+          </span>
+        </div>
+        {/* Back Side */}
+        <div className="absolute inset-0 w-full h-full bg-[#2B3C31] shadow flex items-center justify-center text-white text-xs font-medium px-1 text-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
+          {explanation}
         </div>
       </div>
     </div>
@@ -133,7 +177,7 @@ export default function Home() {
               <div className="w-8 h-8 flex items-center justify-center">
                 <Image
                   src="/logo.svg"
-                  alt="Zhenglong Protocol"
+                  alt="Zhenglong"
                   width={32}
                   height={32}
                   className="w-full h-full"
@@ -142,14 +186,14 @@ export default function Home() {
               <span
                 className={`text-xl tracking-wider text-[#4A7C59] ${geo.className}`}
               >
-                zhenglong
+                ZHENGLONG
               </span>
             </div>
 
             {/* Navigation Links */}
             <div className="hidden md:flex items-center gap-8">
               <a
-                href="http://localhost:3001"
+                href="https://docs.zhenglong.finance"
                 className="text-[#F5F5F5]/80 hover:text-[#F5F5F5] tracking-wider transition-colors whitespace-nowrap"
               >
                 Docs
@@ -214,8 +258,7 @@ export default function Home() {
             <div className="container mx-auto px-6">
               <div className="flex items-center justify-center gap-6 flex-wrap">
                 <p className="text-lg tracking-wider">
-                  🚀 Initial DEX Offering Now Live! Join the Zhenglong Protocol
-                  Launch
+                  🚀 Initial DEX Offering Now Live! Join the Zhenglong Launch
                 </p>
                 <div className="flex gap-4">
                   <ComingSoonOverlay className="group">
@@ -226,13 +269,14 @@ export default function Home() {
                       Participate in IDO →
                     </Link>
                   </ComingSoonOverlay>
-                  <ComingSoonOverlay>
-                    <button
-                      className={`border border-white/50 text-white/50 px-6 py-2 tracking-wider uppercase text-lg cursor-not-allowed ${geo.className}`}
-                    >
-                      Learn More
-                    </button>
-                  </ComingSoonOverlay>
+                  <Link
+                    href="https://docs.zhenglong.finance"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`border border-white text-white hover:bg-white/10 px-6 py-2 tracking-wider uppercase text-lg transition-colors ${geo.className}`}
+                  >
+                    Learn More
+                  </Link>
                 </div>
               </div>
             </div>
@@ -278,7 +322,7 @@ export default function Home() {
                 <h1
                   className={`text-7xl md:text-8xl font-normal mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#4A7C59] to-[#6B9E76] tracking-[0.2em] uppercase ${geo.className}`}
                 >
-                  Zhenglong
+                  ZHENGLONG
                 </h1>
                 <p className="text-xl md:text-2xl text-[#F5F5F5]/80 mb-8 tracking-wider font-light">
                   Freshly steamed protected leverage tokens, paired with
@@ -292,13 +336,14 @@ export default function Home() {
                       Get Started
                     </button>
                   </ComingSoonOverlay>
-                  <ComingSoonOverlay>
-                    <button
-                      className={`border border-[#4A7C59]/50 text-[#F5F5F5]/50 px-8 py-3 tracking-wider uppercase text-lg cursor-not-allowed ${geo.className}`}
-                    >
-                      Learn More
-                    </button>
-                  </ComingSoonOverlay>
+                  <Link
+                    href="https://docs.zhenglong.finance"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`border border-[#4A7C59] text-[#F5F5F5] hover:bg-[#4A7C59]/20 px-8 py-3 tracking-wider uppercase text-lg transition-colors ${geo.className}`}
+                  >
+                    Learn More
+                  </Link>
                 </div>
               </div>
             </section>
@@ -321,87 +366,84 @@ export default function Home() {
               >
                 Fully Backed and Redeemable Tokens
               </h2>
-              <div className="space-y-8">
-                <div className="grid md:grid-cols-2 gap-12">
-                  <div className="space-y-8">
-                    <div className="text-center p-6 pt-10 bg-black p-6 pt-10 shadow-[0_0_15px_rgba(74,124,89,0.1)] min-h-[280px] relative">
-                      <div className="absolute left-1/2 -translate-x-1/2 -top-6 w-12 h-12 bg-[#4A7C59] flex items-center justify-center">
-                        {/* Stability Icon */}
-                        <img
-                          src="/peg.svg"
-                          alt="Pegged Token Icon"
-                          className="w-12 h-12"
-                        />
-                      </div>
+              <div className="max-w-7xl mx-auto px-4 md:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start mb-12">
+                  <div className="lg:col-span-2">
+                    <div className="text-center w-full max-w-4xl mx-auto h-full p-6 pt-10 bg-black shadow-[0_0_15px_rgba(74,124,89,0.1)] relative">
                       <div
                         className={`text-3xl md:text-4xl mb-6 text-[#4A7C59] ${geo.className}`}
                       >
                         ZHE TOKENS
                       </div>
                       <p className="text-[#F5F5F5]/70 leading-relaxed tracking-wide font-light mb-8">
-                        Pegged tokens that track price feeds with 1:1, with
-                        built in real yield via stability pools
+                        High yield pegged tokens that track price feeds with
+                        1:1, with built in real yield via stability pools
                       </p>
-                      <TokenList
-                        tokens={[
-                          "zheUSD",
-                          "zheBTC",
-                          "zheETH",
-                          "zheTSLA",
-                          "zheSP500",
-                        ]}
-                        duration={20}
-                      />
-                    </div>
-                    <div className="grid grid-cols-3 gap-4">
-                      <div className="bg-black p-4 pt-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] rounded-sm relative">
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-[#4A7C59] flex items-center justify-center">
-                          <img
-                            src="/yield.svg"
-                            alt="Yield Icon"
-                            className="w-8 h-8"
-                          />
-                        </div>
-                        <p className="text-sm text-[#F5F5F5]/70 text-center">
-                          Earn real yield for depositing into the stability pool
-                        </p>
-                      </div>
-                      <div className="bg-black p-4 pt-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] rounded-sm relative">
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-[#4A7C59] flex items-center justify-center">
-                          <img
-                            src="/rocket.svg"
-                            alt="Rocket Icon"
-                            className="w-8 h-8"
-                          />
-                        </div>
-                        <p className="text-sm text-[#F5F5F5]/70 text-center">
-                          Earn STEAM for providing AMM liquidity
-                        </p>
-                      </div>
-                      <div className="bg-black p-4 pt-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] rounded-sm relative">
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-[#4A7C59] flex items-center justify-center">
-                          <img
-                            src="/defi.svg"
-                            alt="DeFi Icon"
-                            className="w-8 h-8"
-                          />
-                        </div>
-                        <p className="text-sm text-[#F5F5F5]/70 text-center">
-                          Use in Defi
-                        </p>
+                      {/* Scrolling green flip cards */}
+                      <div className="flex flex-col md:flex-row justify-center items-center w-full mb-4 gap-2 md:gap-4">
+                        <FlipCard
+                          token="zheETH"
+                          explanation="Super high yield ETH exposure"
+                          geoClass={geo.className}
+                          className="w-full md:w-40 h-16 mb-2 md:mb-0"
+                        />
+                        <FlipCard
+                          token="zheBTC"
+                          explanation="Super high yield BTC exposure"
+                          geoClass={geo.className}
+                          className="w-full md:w-40 h-16 mb-2 md:mb-0"
+                        />
+                        <FlipCard
+                          token="More Coming Soon"
+                          explanation="Stay tuned for more high-yield tokens!"
+                          geoClass={geo.className}
+                          className="w-full md:w-40 h-16 mb-2 md:mb-0"
+                        />
                       </div>
                     </div>
                   </div>
-                  <div className="space-y-8">
-                    <div className="text-center p-6 pt-10 bg-black p-6 pt-10 shadow-[0_0_15px_rgba(74,124,89,0.1)] min-h-[280px] relative">
-                      <div className="absolute left-1/2 -translate-x-1/2 -top-6 w-12 h-12 bg-[#4A7C59] flex items-center justify-center">
-                        {/* Volatility Icon */}
+                  <div className="lg:col-span-1 flex flex-col gap-4 h-full min-h-0">
+                    <div className="flex flex-row items-center gap-4 bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] px-4 py-4 relative overflow-visible flex-1 min-h-20">
+                      <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
                         <img
-                          src="/leverage.svg"
-                          alt="Leverage Token Icon"
-                          className="w-12 h-12"
+                          src="/yield.svg"
+                          alt="Yield Icon"
+                          className="w-8 h-8"
                         />
                       </div>
+                      <p className="text-sm text-[#F5F5F5]/70 text-left break-words">
+                        Earn real yield from stability pools
+                      </p>
+                    </div>
+                    <div className="flex flex-row items-center gap-4 bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] px-4 py-4 relative overflow-visible flex-1 min-h-20">
+                      <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
+                        <img
+                          src="/rocket.svg"
+                          alt="Rocket Icon"
+                          className="w-8 h-8"
+                        />
+                      </div>
+                      <p className="text-sm text-[#F5F5F5]/70 text-left break-words">
+                        Earn STEAM from AMM liquidity
+                      </p>
+                    </div>
+                    <div className="flex flex-row items-center gap-4 bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] px-4 py-4 relative overflow-visible flex-1 min-h-20">
+                      <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
+                        <img
+                          src="/defi.svg"
+                          alt="DeFi Icon"
+                          className="w-8 h-8"
+                        />
+                      </div>
+                      <p className="text-sm text-[#F5F5F5]/70 text-left break-words">
+                        Use in Defi
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                  <div className="lg:col-span-2">
+                    <div className="text-center w-full max-w-4xl mx-auto h-full p-6 pt-10 bg-black shadow-[0_0_15px_rgba(74,124,89,0.1)] relative">
                       <div
                         className={`text-3xl md:text-4xl mb-6 text-[#4A7C59] ${geo.className}`}
                       >
@@ -411,57 +453,70 @@ export default function Home() {
                         Get supercharged market exposure through
                         liquidation-protected variable leverage tokens
                       </p>
-                      <TokenList
-                        tokens={[
-                          "steamedETH",
-                          "steamedETH-DOWN",
-                          "steamedBTC",
-                          "steamedBTC-DOWN",
-                          "steamedTSLA",
-                          "steamedTSLA-DOWN",
-                          "steamedSP500",
-                          "steamedSP500-DOWN",
-                        ]}
-                        duration={32}
-                      />
+                      <div className="flex flex-col md:flex-row justify-center items-center w-full mb-4 gap-2 md:gap-4">
+                        <FlipCard
+                          token="steamedUSD/ETH"
+                          explanation="Bullish USD vs ETH"
+                          geoClass={geo.className}
+                          className="w-full md:w-40 h-16 mb-2 md:mb-0"
+                        />
+                        <FlipCard
+                          token="steamedUSD/BTC"
+                          explanation="Bullish USD vs BTC"
+                          geoClass={geo.className}
+                          className="w-full md:w-40 h-16 mb-2 md:mb-0"
+                        />
+                        <FlipCard
+                          token="steamedETH/BTC"
+                          explanation="Bullish ETH vs BTC"
+                          geoClass={geo.className}
+                          className="w-full md:w-40 h-16 mb-2 md:mb-0"
+                        />
+                        <FlipCard
+                          token="More Coming Soon"
+                          explanation="Stay tuned for more leveraged tokens!"
+                          geoClass={geo.className}
+                          className="w-full md:w-40 h-16 mb-2 md:mb-0"
+                        />
+                      </div>
                     </div>
-                    <div className="grid grid-cols-3 gap-4">
-                      <div className="bg-black p-4 pt-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] rounded-sm relative">
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-[#4A7C59] flex items-center justify-center">
-                          <img
-                            src="/stability.svg"
-                            alt="Stability Icon"
-                            className="w-8 h-8"
-                          />
-                        </div>
-                        <p className="text-sm text-[#F5F5F5]/70 text-center">
-                          Stability Mechanism
-                        </p>
+                  </div>
+                  <div className="lg:col-span-1 flex flex-col gap-4 h-full min-h-0">
+                    <div className="flex flex-row items-center gap-4 bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] px-4 py-4 relative overflow-visible flex-1 min-h-20">
+                      <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
+                        <img
+                          src="/stability.svg"
+                          alt="Stability Icon"
+                          className="w-8 h-8"
+                        />
                       </div>
-                      <div className="bg-black p-4 pt-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] rounded-sm relative">
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-[#4A7C59] flex items-center justify-center">
-                          <img
-                            src="/rebalance.svg"
-                            alt="Rebalance Icon"
-                            className="w-8 h-8"
-                          />
-                        </div>
-                        <p className="text-sm text-[#F5F5F5]/70 text-center">
-                          Automated Rebalancing
-                        </p>
+                      <p className="text-sm text-[#F5F5F5]/70 text-left break-words">
+                        Each token has a bull side and bear side
+                      </p>
+                    </div>
+                    <div className="flex flex-row items-center gap-4 bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] px-4 py-4 relative overflow-visible flex-1 min-h-20">
+                      <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
+                        <img
+                          src="/rebalance.svg"
+                          alt="Rebalance Icon"
+                          className="w-8 h-8"
+                        />
                       </div>
-                      <div className="bg-black p-4 pt-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] rounded-sm relative">
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-[#4A7C59] flex items-center justify-center">
-                          <img
-                            src="/defi.svg"
-                            alt="DeFi Icon"
-                            className="w-8 h-8"
-                          />
-                        </div>
-                        <p className="text-sm text-[#F5F5F5]/70 text-center">
-                          Use in Defi
-                        </p>
+                      <p className="text-sm text-[#F5F5F5]/70 text-left break-words">
+                        Automated Rebalancing
+                      </p>
+                    </div>
+                    <div className="flex flex-row items-center gap-4 bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] px-4 py-4 relative overflow-visible flex-1 min-h-20">
+                      <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
+                        <img
+                          src="/defi.svg"
+                          alt="DeFi Icon"
+                          className="w-8 h-8"
+                        />
                       </div>
+                      <p className="text-sm text-[#F5F5F5]/70 text-left break-words">
+                        Use in Defi
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -488,14 +543,14 @@ export default function Home() {
 
               <div className="grid md:grid-cols-2 gap-12 mb-16">
                 {/* Left Column - Security */}
-                <div className="space-y-8">
-                  <div className="bg-black p-8 shadow-[0_0_15px_rgba(74,124,89,0.1)]">
+                <div className="space-y-8 h-full">
+                  <div className="bg-black p-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] min-h-[400px] flex flex-col">
                     <h3
                       className={`text-3xl text-[#4A7C59] mb-6 text-center uppercase tracking-wider font-semibold ${geo.className}`}
                     >
                       Protocol Security
                     </h3>
-                    <div className="space-y-6">
+                    <div className="space-y-6 flex-1">
                       <div className="flex items-start gap-4">
                         <div className="w-8 h-8 mt-1 bg-[#4A7C59] flex-shrink-0 flex items-center justify-center">
                           <img
@@ -539,14 +594,14 @@ export default function Home() {
                 </div>
 
                 {/* Right Column - Yield */}
-                <div className="space-y-8">
-                  <div className="bg-black p-8 shadow-[0_0_15px_rgba(74,124,89,0.1)]">
+                <div className="space-y-8 h-full">
+                  <div className="bg-black p-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] min-h-[400px] flex flex-col">
                     <h3
                       className={`text-3xl text-[#4A7C59] mb-6 text-center uppercase tracking-wider font-semibold ${geo.className}`}
                     >
                       Yield Generation
                     </h3>
-                    <div className="space-y-6">
+                    <div className="space-y-6 flex-1">
                       <div className="flex items-start gap-4">
                         <div className="w-8 h-8 mt-1 bg-[#4A7C59] flex-shrink-0 flex items-center justify-center">
                           <img
@@ -625,7 +680,7 @@ export default function Home() {
                   Protocol ecosystem, offering holders multiple benefits and
                   control over the protocol&apos;s future.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="bg-black p-6 shadow-[0_0_15px_rgba(74,124,89,0.2)] border border-[#4A7C59]/20">
                     <h3
                       className={`text-3xl text-[#4A7C59] mb-4 text-center uppercase tracking-wider font-semibold ${geo.className}`}
@@ -661,16 +716,16 @@ export default function Home() {
                 </div>
                 {/* Call to Action Buttons - Centered below the boxes */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full mt-8">
-                  <ComingSoonOverlay className="w-full">
+                  <ComingSoonOverlay>
                     <button
-                      className={`w-full bg-black/50 text-[#F5F5F5]/50 px-8 py-4 tracking-wider uppercase text-lg cursor-not-allowed ${geo.className}`}
+                      className={`bg-black/50 text-[#F5F5F5]/50 px-8 py-4 tracking-wider uppercase text-lg cursor-not-allowed ${geo.className}`}
                     >
                       Get STEAM
                     </button>
                   </ComingSoonOverlay>
-                  <ComingSoonOverlay className="w-full">
+                  <ComingSoonOverlay>
                     <button
-                      className={`w-full bg-[#4A7C59]/50 text-[#F5F5F5]/50 px-8 py-4 tracking-wider uppercase text-lg cursor-not-allowed ${geo.className}`}
+                      className={`bg-[#4A7C59]/50 text-[#F5F5F5]/50 px-8 py-4 tracking-wider uppercase text-lg cursor-not-allowed ${geo.className}`}
                     >
                       Earn STEAM
                     </button>
@@ -814,13 +869,14 @@ export default function Home() {
                             for your contributions
                           </p>
                           <div className="pt-3">
-                            <ComingSoonOverlay>
-                              <button
-                                className={`bg-[#4A7C59]/50 text-[#F5F5F5]/50 px-8 py-3 tracking-wider uppercase text-lg cursor-not-allowed ${geo.className}`}
-                              >
-                                Join Program
-                              </button>
-                            </ComingSoonOverlay>
+                            <Link
+                              href="https://discord.com/invite/BW3P62vJXT"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`inline-block bg-[#4A7C59] hover:bg-[#4A7C59]/80 text-[#F5F5F5] px-8 py-3 tracking-wider uppercase text-lg transition-colors ${geo.className}`}
+                            >
+                              Join Program
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -847,7 +903,7 @@ export default function Home() {
               >
                 Use Cases
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto items-stretch">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
                 <UseCaseBox
                   title="Weather Derivatives"
                   tokens={["zheRAIN"]}
@@ -1000,9 +1056,9 @@ export default function Home() {
                 </p>
                 <div className="space-y-6">
                   <div className="flex gap-6 items-start">
-                    <div className="w-12 h-12 shrink-0 bg-[#4A7C59]/10 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 shrink-0 bg-[#4A7C59] flex items-center justify-center">
                       <svg
-                        className="w-6 h-6 text-[#4A7C59]"
+                        className="w-6 h-6 text-white"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -1028,9 +1084,9 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex gap-6 items-start">
-                    <div className="w-12 h-12 shrink-0 bg-[#4A7C59]/10 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 shrink-0 bg-[#4A7C59] flex items-center justify-center">
                       <svg
-                        className="w-6 h-6 text-[#4A7C59]"
+                        className="w-6 h-6 text-white"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -1057,28 +1113,24 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="pt-8 text-center">
-                  <ComingSoonOverlay className="inline-block">
-                    <button
-                      className={`bg-[#4A7C59]/50 text-[#F5F5F5]/50 px-8 py-4 tracking-wider uppercase text-lg cursor-not-allowed ${geo.className}`}
-                    >
-                      Contact Us
-                    </button>
-                  </ComingSoonOverlay>
+                  <Link
+                    href="https://discord.com/invite/BW3P62vJXT"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-block bg-[#4A7C59] hover:bg-[#4A7C59]/80 text-[#F5F5F5] px-8 py-4 tracking-wider uppercase text-lg transition-colors ${geo.className}`}
+                  >
+                    Contact Us
+                  </Link>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Institutional-Grade Security & Testing Section */}
-          <section className="relative z-10">
-            <div className="absolute inset-0 pointer-events-none">
-              {/* Steam squares for Security section */}
-              <div className="absolute top-[12%] left-[20%] w-[400px] h-[280px] bg-[#4A7C59]/[0.12]"></div>
-              <div className="absolute top-[18%] right-[25%] w-[340px] h-[240px] bg-[#4A7C59]/[0.10]"></div>
-              <div className="absolute top-[25%] left-[38%] w-[260px] h-[200px] bg-[#4A7C59]/[0.14] animate-float-3"></div>
-              <div className="absolute bottom-[22%] right-[30%] w-[180px] h-[180px] bg-[#4A7C59]/[0.12] animate-float-2"></div>
-              <div className="absolute bottom-[28%] left-[25%] w-[140px] h-[140px] bg-[#4A7C59]/[0.16] animate-steam-2"></div>
-            </div>
+          <section
+            className="relative z-10"
+            style={{ backgroundColor: "#000000" }}
+          >
             <div className="container mx-auto px-6 py-24">
               <div className="flex flex-col items-center mb-10">
                 <div className="w-16 h-16 bg-[#4A7C59] flex items-center justify-center rounded-sm mb-6">
@@ -1104,23 +1156,23 @@ export default function Home() {
                 </h2>
               </div>
               <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-black p-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] border border-[#4A7C59]/20 rounded-sm flex flex-col items-start">
-                  <h3 className="text-2xl font-semibold mb-2 text-[#F5F5F5]/80 tracking-wider">
-                    Code4rena Audited
+                <div
+                  className="p-8 border-2 border-[#4A7C59] flex flex-col items-start relative z-20"
+                  style={{ backgroundColor: "#000000", opacity: 1 }}
+                >
+                  <h3 className="text-2xl font-semibold mb-2 text-[#F5F5F5] tracking-wider">
+                    Third-Party Audited
                   </h3>
                   <p className="text-[#F5F5F5]/70 leading-relaxed font-light mb-2">
-                    Smart contracts thoroughly audited by Code4rena, a leading
-                    community-driven auditing platform trusted across DeFi.
+                    Smart contracts will undergo a thorough independent security
+                    audit by a leading third-party firm before mainnet launch.
                   </p>
-                  <a
-                    href="#"
-                    className="inline-block mt-2 text-[#4A7C59] underline underline-offset-4 text-lg font-medium"
-                  >
-                    View Audit Report →
-                  </a>
                 </div>
-                <div className="bg-black p-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] border border-[#4A7C59]/20 rounded-sm flex flex-col items-start">
-                  <h3 className="text-2xl font-semibold mb-2 text-[#F5F5F5]/80 tracking-wider">
+                <div
+                  className="p-8 border-2 border-[#4A7C59] flex flex-col items-start relative z-20"
+                  style={{ backgroundColor: "#000000", opacity: 1 }}
+                >
+                  <h3 className="text-2xl font-semibold mb-2 text-[#F5F5F5] tracking-wider">
                     Banking Industry Experience
                   </h3>
                   <p className="text-[#F5F5F5]/70 leading-relaxed font-light">
@@ -1129,8 +1181,11 @@ export default function Home() {
                     robust risk management.
                   </p>
                 </div>
-                <div className="bg-black p-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] border border-[#4A7C59]/20 rounded-sm flex flex-col items-start">
-                  <h3 className="text-2xl font-semibold mb-2 text-[#F5F5F5]/80 tracking-wider">
+                <div
+                  className="p-8 border-2 border-[#4A7C59] flex flex-col items-start relative z-20"
+                  style={{ backgroundColor: "#000000", opacity: 1 }}
+                >
+                  <h3 className="text-2xl font-semibold mb-2 text-[#F5F5F5] tracking-wider">
                     Multi-layered Testing
                   </h3>
                   <ul className="list-disc list-inside text-[#F5F5F5]/70 space-y-1">
