@@ -63,7 +63,7 @@ const UseCaseBox = ({
         {/* Front Side */}
         <div className="absolute inset-0 h-full w-full bg-[#4A7C59]/20 p-6 pt-10 shadow-[0_0_15px_rgba(74,124,89,0.1)] border border-[#4A7C59]/20 flex flex-col items-center justify-center transition-all relative [backface-visibility:hidden]">
           <span
-            className={`text-3xl text-[#F5F5F5]/80 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+            className={`text-3xl text-[#F5F5F5]/80 text-center tracking-wider font-semibold ${geo.className}`}
           >
             {title}
           </span>
@@ -133,7 +133,7 @@ export default function Home() {
               <div className="w-8 h-8 flex items-center justify-center">
                 <Image
                   src="/logo.svg"
-                  alt="Zhenglong Protocol"
+                  alt="Zhenglong"
                   width={32}
                   height={32}
                   className="w-full h-full"
@@ -142,7 +142,7 @@ export default function Home() {
               <span
                 className={`text-xl tracking-wider text-[#4A7C59] ${geo.className}`}
               >
-                zhenglong
+                ZHENGLONG
               </span>
             </div>
 
@@ -214,8 +214,7 @@ export default function Home() {
             <div className="container mx-auto px-6">
               <div className="flex items-center justify-center gap-6 flex-wrap">
                 <p className="text-lg tracking-wider">
-                  🚀 Initial DEX Offering Now Live! Join the Zhenglong Protocol
-                  Launch
+                  🚀 Initial DEX Offering Now Live! Join the zhenglong launch
                 </p>
                 <div className="flex gap-4">
                   <ComingSoonOverlay className="group">
@@ -278,7 +277,7 @@ export default function Home() {
                 <h1
                   className={`text-7xl md:text-8xl font-normal mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#4A7C59] to-[#6B9E76] tracking-[0.2em] uppercase ${geo.className}`}
                 >
-                  Zhenglong
+                  zhenglong
                 </h1>
                 <p className="text-xl md:text-2xl text-[#F5F5F5]/80 mb-8 tracking-wider font-light">
                   Freshly steamed protected leverage tokens, paired with
@@ -317,7 +316,7 @@ export default function Home() {
             </div>
             <div className="container mx-auto px-6 py-24">
               <h2
-                className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase ${geo.className}`}
+                className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider ${geo.className}`}
               >
                 Fully Backed and Redeemable Tokens
               </h2>
@@ -342,51 +341,80 @@ export default function Home() {
                         Pegged tokens that track price feeds with 1:1, with
                         built in real yield via stability pools
                       </p>
-                      <TokenList
-                        tokens={[
-                          "zheUSD",
-                          "zheBTC",
-                          "zheETH",
-                          "zheTSLA",
-                          "zheSP500",
-                        ]}
-                        duration={20}
-                      />
+                      <div className="grid grid-cols-3 gap-4">
+                        <div className="bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] p-4 flex flex-col items-center justify-between w-[calc(33.333%-0.5rem)] h-40 overflow-hidden">
+                          <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center mb-2 flex-shrink-0">
+                            <img
+                              src="/yield.svg"
+                              alt="Yield Icon"
+                              className="w-8 h-8"
+                            />
+                          </div>
+                          <p className="text-sm text-[#F5F5F5]/70 text-center break-words">
+                            Earn real yield for depositing into the stability
+                            pool
+                          </p>
+                        </div>
+                        <div className="bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] p-4 flex flex-col items-center justify-between w-[calc(33.333%-0.5rem)] h-40 overflow-hidden">
+                          <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center mb-2 flex-shrink-0">
+                            <img
+                              src="/rocket.svg"
+                              alt="Rocket Icon"
+                              className="w-8 h-8"
+                            />
+                          </div>
+                          <p className="text-sm text-[#F5F5F5]/70 text-center break-words">
+                            Earn STEAM for providing AMM liquidity
+                          </p>
+                        </div>
+                        <div className="bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] p-4 flex flex-col items-center justify-between w-[calc(33.333%-0.5rem)] h-40 overflow-hidden">
+                          <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center mb-2 flex-shrink-0">
+                            <img
+                              src="/defi.svg"
+                              alt="DeFi Icon"
+                              className="w-8 h-8"
+                            />
+                          </div>
+                          <p className="text-sm text-[#F5F5F5]/70 text-center break-words">
+                            Use in Defi
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="grid grid-cols-3 gap-4">
-                      <div className="bg-black p-4 pt-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] rounded-sm relative">
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-[#4A7C59] flex items-center justify-center">
+                    <div className="flex gap-4 w-full justify-center">
+                      <div className="flex flex-col items-center justify-between bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] p-4 flex-shrink-0 flex-grow-0 aspect-[4/3] max-w-xs min-w-[16rem] overflow-hidden">
+                        <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center mb-2">
                           <img
                             src="/yield.svg"
                             alt="Yield Icon"
                             className="w-8 h-8"
                           />
                         </div>
-                        <p className="text-sm text-[#F5F5F5]/70 text-center">
+                        <p className="text-sm text-[#F5F5F5]/70 text-center break-words">
                           Earn real yield for depositing into the stability pool
                         </p>
                       </div>
-                      <div className="bg-black p-4 pt-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] rounded-sm relative">
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-[#4A7C59] flex items-center justify-center">
+                      <div className="flex flex-col items-center justify-between bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] p-4 flex-shrink-0 flex-grow-0 aspect-[4/3] max-w-xs min-w-[16rem] overflow-hidden">
+                        <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center mb-2">
                           <img
                             src="/rocket.svg"
                             alt="Rocket Icon"
                             className="w-8 h-8"
                           />
                         </div>
-                        <p className="text-sm text-[#F5F5F5]/70 text-center">
+                        <p className="text-sm text-[#F5F5F5]/70 text-center break-words">
                           Earn STEAM for providing AMM liquidity
                         </p>
                       </div>
-                      <div className="bg-black p-4 pt-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] rounded-sm relative">
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-[#4A7C59] flex items-center justify-center">
+                      <div className="flex flex-col items-center justify-between bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] p-4 flex-shrink-0 flex-grow-0 aspect-[4/3] max-w-xs min-w-[16rem] overflow-hidden">
+                        <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center mb-2">
                           <img
                             src="/defi.svg"
                             alt="DeFi Icon"
                             className="w-8 h-8"
                           />
                         </div>
-                        <p className="text-sm text-[#F5F5F5]/70 text-center">
+                        <p className="text-sm text-[#F5F5F5]/70 text-center break-words">
                           Use in Defi
                         </p>
                       </div>
@@ -425,40 +453,40 @@ export default function Home() {
                         duration={32}
                       />
                     </div>
-                    <div className="grid grid-cols-3 gap-4">
-                      <div className="bg-black p-4 pt-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] rounded-sm relative">
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-[#4A7C59] flex items-center justify-center">
+                    <div className="flex gap-4 w-full justify-center">
+                      <div className="flex flex-col items-center justify-between bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] p-4 flex-shrink-0 flex-grow-0 aspect-[4/3] max-w-xs min-w-[16rem] overflow-hidden">
+                        <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center mb-2 flex-shrink-0">
                           <img
                             src="/stability.svg"
                             alt="Stability Icon"
                             className="w-8 h-8"
                           />
                         </div>
-                        <p className="text-sm text-[#F5F5F5]/70 text-center">
+                        <p className="text-sm text-[#F5F5F5]/70 text-center break-words">
                           Stability Mechanism
                         </p>
                       </div>
-                      <div className="bg-black p-4 pt-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] rounded-sm relative">
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-[#4A7C59] flex items-center justify-center">
+                      <div className="flex flex-col items-center justify-between bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] p-4 flex-shrink-0 flex-grow-0 aspect-[4/3] max-w-xs min-w-[16rem] overflow-hidden">
+                        <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center mb-2 flex-shrink-0">
                           <img
                             src="/rebalance.svg"
                             alt="Rebalance Icon"
                             className="w-8 h-8"
                           />
                         </div>
-                        <p className="text-sm text-[#F5F5F5]/70 text-center">
+                        <p className="text-sm text-[#F5F5F5]/70 text-center break-words">
                           Automated Rebalancing
                         </p>
                       </div>
-                      <div className="bg-black p-4 pt-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] rounded-sm relative">
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-[#4A7C59] flex items-center justify-center">
+                      <div className="flex flex-col items-center justify-between bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] p-4 flex-shrink-0 flex-grow-0 aspect-[4/3] max-w-xs min-w-[16rem] overflow-hidden">
+                        <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center mb-2 flex-shrink-0">
                           <img
                             src="/defi.svg"
                             alt="DeFi Icon"
                             className="w-8 h-8"
                           />
                         </div>
-                        <p className="text-sm text-[#F5F5F5]/70 text-center">
+                        <p className="text-sm text-[#F5F5F5]/70 text-center break-words">
                           Use in Defi
                         </p>
                       </div>
@@ -481,7 +509,7 @@ export default function Home() {
             </div>
             <div className="container mx-auto px-6 py-24">
               <h2
-                className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase ${geo.className}`}
+                className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider ${geo.className}`}
               >
                 Stability Pools: Security & Yield
               </h2>
@@ -491,7 +519,7 @@ export default function Home() {
                 <div className="space-y-8">
                   <div className="bg-black p-8 shadow-[0_0_15px_rgba(74,124,89,0.1)]">
                     <h3
-                      className={`text-3xl text-[#4A7C59] mb-6 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                      className={`text-3xl text-[#4A7C59] mb-6 text-center tracking-wider font-semibold ${geo.className}`}
                     >
                       Protocol Security
                     </h3>
@@ -542,7 +570,7 @@ export default function Home() {
                 <div className="space-y-8">
                   <div className="bg-black p-8 shadow-[0_0_15px_rgba(74,124,89,0.1)]">
                     <h3
-                      className={`text-3xl text-[#4A7C59] mb-6 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                      className={`text-3xl text-[#4A7C59] mb-6 text-center tracking-wider font-semibold ${geo.className}`}
                     >
                       Yield Generation
                     </h3>
@@ -615,20 +643,20 @@ export default function Home() {
             </div>
             <div className="container mx-auto px-6 py-24">
               <h2
-                className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase ${geo.className}`}
+                className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider ${geo.className}`}
               >
                 STEAM Token
               </h2>
               <div className="space-y-8">
                 <p className="text-xl text-[#F5F5F5]/90 leading-relaxed tracking-wide font-light mb-12 max-w-4xl mx-auto text-center">
-                  STEAM is the governance token that powers the Zhenglong
+                  STEAM is the governance token that powers the zhenglong
                   Protocol ecosystem, offering holders multiple benefits and
                   control over the protocol&apos;s future.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                   <div className="bg-black p-6 shadow-[0_0_15px_rgba(74,124,89,0.2)] border border-[#4A7C59]/20">
                     <h3
-                      className={`text-3xl text-[#4A7C59] mb-4 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                      className={`text-3xl text-[#4A7C59] mb-4 text-center tracking-wider font-semibold ${geo.className}`}
                     >
                       Revenue Share
                     </h3>
@@ -639,7 +667,7 @@ export default function Home() {
                   </div>
                   <div className="bg-black p-6 shadow-[0_0_15px_rgba(74,124,89,0.2)] border border-[#4A7C59]/20">
                     <h3
-                      className={`text-3xl text-[#4A7C59] mb-4 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                      className={`text-3xl text-[#4A7C59] mb-4 text-center tracking-wider font-semibold ${geo.className}`}
                     >
                       Boost Rewards
                     </h3>
@@ -650,7 +678,7 @@ export default function Home() {
                   </div>
                   <div className="bg-black p-6 shadow-[0_0_15px_rgba(74,124,89,0.2)] border border-[#4A7C59]/20">
                     <h3
-                      className={`text-3xl text-[#4A7C59] mb-4 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                      className={`text-3xl text-[#4A7C59] mb-4 text-center tracking-wider font-semibold ${geo.className}`}
                     >
                       Governance Rights
                     </h3>
@@ -692,7 +720,7 @@ export default function Home() {
             </div>
             <div className="container mx-auto px-6 py-24">
               <h2
-                className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase ${geo.className}`}
+                className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider ${geo.className}`}
               >
                 Community Booster Program
               </h2>
@@ -702,8 +730,8 @@ export default function Home() {
                   {/* Description Text */}
                   <p className="text-xl text-[#F5F5F5]/80 leading-relaxed tracking-wide font-light text-center max-w-3xl mx-auto">
                     Join our community of boosters and earn STEAM tokens for
-                    helping spread the word about Zhenglong Protocol. Any form
-                    of marketing contribution is welcome.
+                    helping spread the word about zhenglong. Any form of
+                    marketing contribution is welcome.
                   </p>
 
                   {/* Four Boxes Grid */}
@@ -717,7 +745,7 @@ export default function Home() {
                         />
                       </div>
                       <h3
-                        className={`text-3xl text-[#4A7C59] mb-3 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                        className={`text-3xl text-[#4A7C59] mb-3 text-center tracking-wider font-semibold ${geo.className}`}
                       >
                         Social Media
                       </h3>
@@ -735,13 +763,13 @@ export default function Home() {
                         />
                       </div>
                       <h3
-                        className={`text-3xl text-[#4A7C59] mb-3 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                        className={`text-3xl text-[#4A7C59] mb-3 text-center tracking-wider font-semibold ${geo.className}`}
                       >
                         Content Creation
                       </h3>
                       <p className="text-[#F5F5F5]/70 leading-relaxed tracking-wide font-light">
                         Produce videos, tutorials, articles, blogs, and
-                        educational content about Zhenglong
+                        educational content about zhenglong
                       </p>
                     </div>
                     <div className="bg-black p-6 pt-10 shadow-[0_0_15px_rgba(74,124,89,0.1)] relative">
@@ -753,13 +781,13 @@ export default function Home() {
                         />
                       </div>
                       <h3
-                        className={`text-3xl text-[#4A7C59] mb-3 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                        className={`text-3xl text-[#4A7C59] mb-3 text-center tracking-wider font-semibold ${geo.className}`}
                       >
                         Art & Memes
                       </h3>
                       <p className="text-[#F5F5F5]/70 leading-relaxed tracking-wide font-light">
                         Create artwork, memes, and visual content to promote
-                        Zhenglong
+                        zhenglong
                       </p>
                     </div>
                     <div className="bg-black p-6 pt-10 shadow-[0_0_15px_rgba(74,124,89,0.1)] relative">
@@ -771,7 +799,7 @@ export default function Home() {
                         />
                       </div>
                       <h3
-                        className={`text-3xl text-[#4A7C59] mb-3 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                        className={`text-3xl text-[#4A7C59] mb-3 text-center tracking-wider font-semibold ${geo.className}`}
                       >
                         Community Building
                       </h3>
@@ -810,7 +838,7 @@ export default function Home() {
                             Become a Booster
                           </div>
                           <p className="text-[#F5F5F5]/70 leading-relaxed tracking-wide font-light">
-                            Help grow the Zhenglong ecosystem and earn rewards
+                            Help grow the zhenglong ecosystem and earn rewards
                             for your contributions
                           </p>
                           <div className="pt-3">
@@ -843,7 +871,7 @@ export default function Home() {
             </div>
             <div className="container mx-auto px-6 py-24">
               <h2
-                className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase ${geo.className}`}
+                className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider ${geo.className}`}
               >
                 Use Cases
               </h2>
@@ -947,11 +975,11 @@ export default function Home() {
               </div>
               <div className="mt-12 text-center">
                 <p className="text-[#F5F5F5]/80 leading-relaxed tracking-wide font-light max-w-3xl mx-auto">
-                  These examples show just a few ways Zhenglong Protocol could
-                  empower innovation by turning any reliable data source into a
-                  secure, yield-generating pegged token market. The flexibility
-                  is huge—and as long as there's reliable price data and market
-                  demand, Zhenglong can tokenize it.
+                  These examples show just a few ways zhenglong could empower
+                  innovation by turning any reliable data source into a secure,
+                  yield-generating pegged token market. The flexibility is
+                  huge—and as long as there's reliable price data and market
+                  demand, zhenglong can tokenize it.
                 </p>
               </div>
             </div>
@@ -985,7 +1013,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h2
-                  className={`text-3xl md:text-4xl font-normal text-center tracking-wider uppercase ${geo.className}`}
+                  className={`text-3xl md:text-4xl font-normal text-center tracking-wider ${geo.className}`}
                 >
                   Collaborate on a New Market
                 </h2>
@@ -993,7 +1021,7 @@ export default function Home() {
               <div className="max-w-5xl mx-auto space-y-8">
                 <p className="text-xl text-[#F5F5F5]/80 leading-relaxed tracking-wide font-light">
                   Whether one of our existing ideas resonates with your
-                  community or you have your own creative vision, Zhenglong is
+                  community or you have your own creative vision, zhenglong is
                   ready to help you build it. Launch your own market with
                   minimal requirements - if you have a collateral token and a
                   price feed, you&apos;re ready to go.
@@ -1017,7 +1045,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h3
-                        className={`text-lg font-medium mb-2 tracking-wider uppercase text-[#4A7C59] ${geo.className}`}
+                        className={`text-lg font-medium mb-2 tracking-wider text-[#4A7C59] ${geo.className}`}
                       >
                         Collateral Token
                       </h3>
@@ -1045,7 +1073,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h3
-                        className={`text-lg font-medium mb-2 tracking-wider uppercase text-[#4A7C59] ${geo.className}`}
+                        className={`text-lg font-medium mb-2 tracking-wider text-[#4A7C59] ${geo.className}`}
                       >
                         Price Feed
                       </h3>
@@ -1098,7 +1126,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h2
-                  className={`text-3xl md:text-4xl font-normal text-center tracking-wider uppercase text-[#F5F5F5]/80 ${geo.className}`}
+                  className={`text-3xl md:text-4xl font-normal text-center tracking-wider text-[#F5F5F5]/80 ${geo.className}`}
                 >
                   Institutional-Grade Security & Testing
                 </h2>

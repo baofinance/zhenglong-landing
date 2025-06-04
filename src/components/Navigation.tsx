@@ -18,19 +18,19 @@ export default function Navigation() {
         <div className="flex items-center h-20">
           {/* Left side: Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-20 h-18 flex items-center justify-center">
+            <div className="w-8 h-8 flex items-center justify-center">
               <Image
                 src="/logo.svg"
                 alt="Zhenglong Protocol"
-                width={80}
-                height={70}
+                width={32}
+                height={32}
                 className="w-full h-full"
               />
             </div>
             <span
-              className={`text-3xl tracking-wider text-[#4A7C59] ${geo.className}`}
+              className={`text-xl tracking-wider text-[#4A7C59] ${geo.className}`}
             >
-              zhenglong
+              ZHENGLONG
             </span>
           </Link>
 
@@ -41,31 +41,31 @@ export default function Navigation() {
                 href="/app"
                 className={`text-xl text-white hover:text-white/80 transition-colors ${geo.className}`}
               >
-                Mint/Redeem
+                MINT/REDEEM
               </Link>
               <Link
                 href="/earn"
                 className={`text-xl text-white hover:text-white/80 transition-colors ${geo.className}`}
               >
-                Earn
+                EARN
               </Link>
               <Link
                 href="/vote"
                 className={`text-xl text-white hover:text-white/80 transition-colors ${geo.className}`}
               >
-                Vote
+                VOTE
               </Link>
               <Link
                 href="/genesis"
                 className={`text-xl text-white hover:text-white/80 transition-colors ${geo.className}`}
               >
-                Genesis
+                GENESIS
               </Link>
               <Link
                 href="/staking"
                 className={`text-xl text-white hover:text-white/80 transition-colors ${geo.className}`}
               >
-                Staking
+                STAKING
               </Link>
             </div>
           </div>

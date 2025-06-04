@@ -289,7 +289,7 @@ export default function App() {
         {/* Header */}
         <div className="text-center mb-10">
           <h1 className={`text-4xl text-[#4A7C59] ${geo.className}`}>
-            Mint & Redeem
+            MINT & REDEEM
           </h1>
           <p className="text-[#F5F5F5]/60 text-sm mt-2">
             Mint or redeem pegged and leverage tokens from any market

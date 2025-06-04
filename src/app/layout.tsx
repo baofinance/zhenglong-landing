@@ -17,7 +17,7 @@ const geo = Geo({
 });
 
 export const metadata: Metadata = {
-  title: "Zhenglong Protocol",
+  title: "zhenglong",
   description: "Create tokens pegged to real-world data feeds",
 };
 
