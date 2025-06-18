@@ -168,6 +168,7 @@ export default function IdoPage() {
             />
             <div className="flex flex-col gap-4">
               <UserAllocation
+                walletAddress={walletAddress}
                 discount={discount}
                 userTotalDeposited={userTotalDeposited}
               />
