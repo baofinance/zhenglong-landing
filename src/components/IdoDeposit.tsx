@@ -120,17 +120,26 @@ export default function IdoDeposit({
   }, [walletAddress]);
 
   const handleApprove = async () => {
-    if (!walletAddress || !window.ethereum) return;
+    if (!walletAddress || !window.ethereum || !depositAmount) return;
+    const amountToApprove = parseFloat(depositAmount);
+    if (isNaN(amountToApprove) || amountToApprove <= 0) {
+      alert("Please enter a valid amount to approve.");
+      return;
+    }
 
     try {
       const contractAddress = getIdoContractAddress();
-      const maxApproval =
-        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
+      // Convert amount to 6-decimal format for USDC
+      const amountInWei = Math.floor(amountToApprove * Math.pow(10, 6));
+      const amountHex = amountInWei.toString(16).padStart(64, "0");
+
       const data = `0x095ea7b3${contractAddress
         .slice(2)
-        .padStart(64, "0")}${maxApproval}`;
+        .padStart(64, "0")}${amountHex}`;
 
-      console.log(`Approving IDO contract ${contractAddress} to spend USDC`);
+      console.log(
+        `Approving IDO contract ${contractAddress} to spend ${amountToApprove} USDC`
+      );
 
       await handleTx(
         {
@@ -401,10 +410,16 @@ export default function IdoDeposit({
                   </span>
                   <span
                     className={`text-xs ${
-                      isApproved ? "text-green-400" : "text-red-400"
+                      isApproved && parsedAmount > 0
+                        ? "text-green-400"
+                        : "text-red-400"
                     }`}
                   >
-                    {isApproved ? "✓ Sufficient" : "⚠ Need approval"}
+                    {isApproved && parsedAmount > 0
+                      ? "✓ Sufficient"
+                      : !isApproved && parsedAmount > 0
+                      ? "⚠ Need approval"
+                      : ""}
                   </span>
                 </div>
               </div>
