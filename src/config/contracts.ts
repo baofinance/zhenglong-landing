@@ -11,13 +11,13 @@ export const CONTRACTS = {
     TEST: "0x4d5bb90ef6dae6c587c9accc3409fafcf33f7004",
 
     // Live contract (update when ready to go live)
-    LIVE: "0x0000000000000000000000000000000000000000", // Update this when deploying live contract
+    LIVE: "0xa21136acd34cbbc2b795da091de6a254ba1f6b40", // Update this when deploying live contract
   },
 };
 
 // Environment flag to control which contract to use
 // Set to 'LIVE' when ready to go live
-export const CONTRACT_MODE: "TEST" | "LIVE" = "TEST";
+export const CONTRACT_MODE: "TEST" | "LIVE" = "LIVE";
 
 // Get the current IDO contract address based on mode
 export const getIdoContractAddress = (): string => {
@@ -26,12 +26,12 @@ export const getIdoContractAddress = (): string => {
 
 // Helper to check if we're using test contract
 export const isTestMode = (): boolean => {
-  return CONTRACT_MODE === "TEST";
+  return false;
 };
 
 // Display name for current mode (for UI indicators)
 export const getContractModeDisplay = (): string => {
-  return CONTRACT_MODE === "TEST" ? "Test Contract" : "Live Contract";
+  return "Live Contract";
 };
 
 // Function selectors for contract interactions

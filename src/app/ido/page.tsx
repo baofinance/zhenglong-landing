@@ -156,52 +156,52 @@ export default function IdoPage() {
 
       {/* Main Content */}
       <main className="relative z-10 pt-16">
-        {/* IDO Page Header */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
-          <h1
-            className={`text-4xl md:text-6xl font-bold text-[#4A7C59] mb-6 ${geo.className}`}
-          >
-            DISCOUNTED COMMUNITY SALE
-          </h1>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-3">
+          {/* IDO Page Header */}
+          <div className="py-8 text-center">
+            <h1
+              className={`text-4xl md:text-6xl font-bold text-[#4A7C59] mb-6 ${geo.className}`}
+            >
+              DISCOUNTED COMMUNITY SALE
+            </h1>
 
-          {/* Collaboration Partners */}
-          <div className="mb-3">
-            <p className="text-sm text-[#F5F5F5]/60 mb-4 uppercase tracking-wider">
-              In Collaboration With
-            </p>
-            <div className="flex items-center justify-center gap-8">
-              <div className="flex items-center gap-2 p-3 bg-[#1A1A1A]/50 border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors">
-                <Image
-                  src="/bao-logo.svg"
-                  alt="BAO Finance"
-                  width={40}
-                  height={40}
-                  className="w-10 h-10"
-                />
-                <span className="text-[#F5F5F5]/80 font-medium">
-                  BAO Finance
-                </span>
-              </div>
-              <div className="flex items-center gap-2 p-3 bg-[#1A1A1A]/50 border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors">
-                <Image
-                  src="/fxn-logo.svg"
-                  alt="F(x) Protocol"
-                  width={40}
-                  height={40}
-                  className="w-10 h-10"
-                />
-                <span className="text-[#F5F5F5]/80 font-medium">
-                  F(x) Protocol
-                </span>
+            {/* Collaboration Partners */}
+            <div className="mb-3">
+              <p className="text-sm text-[#F5F5F5]/60 mb-4 uppercase tracking-wider">
+                In Collaboration With
+              </p>
+              <div className="flex items-center justify-center gap-8">
+                <div className="flex items-center gap-2 p-3 bg-[#1A1A1A]/50 border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors">
+                  <Image
+                    src="/bao-logo.svg"
+                    alt="BAO Finance"
+                    width={40}
+                    height={40}
+                    className="w-10 h-10"
+                  />
+                  <span className="text-[#F5F5F5]/80 font-medium">
+                    BAO Finance
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 p-3 bg-[#1A1A1A]/50 border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors">
+                  <Image
+                    src="/fxn-logo.svg"
+                    alt="F(x) Protocol"
+                    width={40}
+                    height={40}
+                    className="w-10 h-10"
+                  />
+                  <span className="text-[#F5F5F5]/80 font-medium">
+                    F(x) Protocol
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <IdoDashboard />
+          <IdoDashboard />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
             <IdoDeposit
               walletAddress={walletAddress}
               isEligible={isEligible}
@@ -209,7 +209,7 @@ export default function IdoPage() {
               connectWallet={connectWallet}
               isConnecting={isConnecting}
             />
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3">
               <UserAllocation
                 walletAddress={walletAddress}
                 discount={discount}

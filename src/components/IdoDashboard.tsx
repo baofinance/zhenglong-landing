@@ -88,12 +88,7 @@ const readIdoContract = async (
 
     console.log(`Result for ${functionName}:`, result);
 
-    if (
-      !result ||
-      result === "0x" ||
-      result ===
-        "0x0000000000000000000000000000000000000000000000000000000000000000"
-    ) {
+    if (!result || result === "0x") {
       console.warn(`No data returned for ${functionName}. Result: ${result}`);
       return { value: null, isReal: false };
     }
@@ -241,13 +236,13 @@ export default function IdoDashboard() {
         }
 
         const now = Math.floor(Date.now() / 1000);
-        const saleStartTimestamp = saleStartResult.value as number;
-        const saleEndTimestamp = saleEndResult.value as number;
-        const totalRaisedRaw = totalRaisedResult.value as number; // This is already in 6-decimal USDC format
+        const saleStartTimestamp = (saleStartResult.value as number) || 0;
+        const saleEndTimestamp = (saleEndResult.value as number) || 0;
+        const totalRaisedRaw = (totalRaisedResult.value as number) || 0; // This is already in 6-decimal USDC format
 
         // Calculate derived values
-        const isActive = saleActiveResult.value as boolean;
-        const isCompleted = saleEndTimestamp < now;
+        const isActive = (saleActiveResult.value as boolean) || false;
+        const isCompleted = saleEndTimestamp ? saleEndTimestamp < now : false;
 
         // Convert totalRaisedRaw from 6-decimal format to actual USD amount
         const totalRaisedUSD = totalRaisedRaw / Math.pow(10, 6); // 10000000 -> $10.00
@@ -265,13 +260,13 @@ export default function IdoDashboard() {
 
         // Use real data where available
         const data: ContractData = {
-          saleStart: saleStartTimestamp || now - 7 * 24 * 60 * 60,
+          saleStart: saleStartTimestamp,
           saleEnd: saleEndTimestamp,
           salePrice: "80000", // $0.08 USDC (6 decimals: 0.08 * 10^6)
           totalSupply: "125000000000000000000000000", // 125M tokens (18 decimals)
           tokensSold: tokensSoldWei,
           totalRaised: totalRaisedRaw.toString(), // Keep in 6-decimal format for display
-          totalParticipants: totalParticipantsResult.value as number,
+          totalParticipants: (totalParticipantsResult.value as number) || 0,
           remainingTokens: remainingTokensWei,
           saleActive: isActive,
           saleCompleted: isCompleted,
@@ -295,7 +290,7 @@ export default function IdoDashboard() {
   // Don't render anything until we have contract data
   if (!contractData) {
     return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-8 text-center">
           {isLoadingContract ? (
             <div className="text-[#F5F5F5]/60">
@@ -314,154 +309,141 @@ export default function IdoDashboard() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-3">
-      <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-4 space-y-3">
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-          <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-2 hover:border-[#4A7C59]/40 transition-colors text-center">
-            <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
-              Tokens Sold
-            </div>
-            <div
-              className={`text-[#4A7C59] text-2xl font-bold ${geo.className}`}
-            >
-              {formatNumber(contractData.tokensSold)}
-            </div>
-            <div className="text-[#F5F5F5]/40 text-xs">
-              of {formatNumber(contractData.totalSupply)} total
-            </div>
+    <>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-2 hover:border-[#4A7C59]/40 transition-colors text-center">
+          <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
+            Tokens Sold
           </div>
-
-          <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-2 hover:border-[#4A7C59]/40 transition-colors text-center">
-            <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
-              Total Raised
-            </div>
-            <div
-              className={`text-[#4A7C59] text-2xl font-bold ${geo.className}`}
-            >
-              ${formatNumber(contractData.totalRaised, 6)}
-            </div>
-            <div className="text-[#F5F5F5]/40 text-xs">USDC raised</div>
+          <div className={`text-[#4A7C59] text-2xl font-bold ${geo.className}`}>
+            {formatNumber(contractData.tokensSold)}
           </div>
-
-          <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-2 hover:border-[#4A7C59]/40 transition-colors text-center">
-            <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
-              Participants
-            </div>
-            <div
-              className={`text-[#4A7C59] text-2xl font-bold ${geo.className}`}
-            >
-              {contractData.totalParticipants.toLocaleString()}
-            </div>
-            <div className="text-[#F5F5F5]/40 text-xs">unique wallets</div>
-          </div>
-
-          <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-2 hover:border-[#4A7C59]/40 transition-colors text-center">
-            <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
-              Time Left
-            </div>
-            <div
-              className={`text-[#4A7C59] text-2xl font-bold ${geo.className}`}
-            >
-              {isMounted ? timeRemaining : "Loading..."}
-            </div>
-            <div className="text-[#F5F5F5]/40 text-xs">until sale ends</div>
+          <div className="text-[#F5F5F5]/40 text-xs">
+            of {formatNumber(contractData.totalSupply)} total
           </div>
         </div>
 
-        {/* Sale Analytics & Metrics */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-          <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-3 hover:border-[#4A7C59]/40 transition-colors">
-            <div className="flex items-center justify-between mb-2">
-              <h3
-                className={`text-base font-bold text-[#F5F5F5] ${geo.className}`}
-              >
-                Eligibility Info
-              </h3>
-              <span
-                className={`relative group inline-flex items-center gap-1 px-3 py-1 text-xs font-bold tracking-wider uppercase border text-[#4A7C59] border-[#4A7C59]/30 bg-[#4A7C59]/10 ${geo.className}`}
-              >
-                UPDATED DAILY
-                <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max px-3 py-2 text-xs bg-[#1A1A1A] border border-[#4A7C59]/30 text-[#F5F5F5] rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
-                  Update your allocation and eligibility; changes apply the next
-                  day.
-                </span>
+        <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-2 hover:border-[#4A7C59]/40 transition-colors text-center">
+          <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
+            Total Raised
+          </div>
+          <div className={`text-[#4A7C59] text-2xl font-bold ${geo.className}`}>
+            ${formatNumber(contractData.totalRaised, 6)}
+          </div>
+          <div className="text-[#F5F5F5]/40 text-xs">USDC raised</div>
+        </div>
+
+        <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-2 hover:border-[#4A7C59]/40 transition-colors text-center">
+          <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
+            Participants
+          </div>
+          <div className={`text-[#4A7C59] text-2xl font-bold ${geo.className}`}>
+            {contractData.totalParticipants.toLocaleString()}
+          </div>
+          <div className="text-[#F5F5F5]/40 text-xs">unique wallets</div>
+        </div>
+
+        <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-2 hover:border-[#4A7C59]/40 transition-colors text-center">
+          <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
+            Time Left
+          </div>
+          <div className={`text-[#4A7C59] text-2xl font-bold ${geo.className}`}>
+            {isMounted ? timeRemaining : "Loading..."}
+          </div>
+          <div className="text-[#F5F5F5]/40 text-xs">until sale ends</div>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-8 hover:border-[#4A7C59]/40 transition-colors">
+          <div className="flex items-center justify-between mb-2">
+            <h3
+              className={`text-base font-bold text-[#F5F5F5] ${geo.className}`}
+            >
+              Eligibility Info
+            </h3>
+            <span
+              className={`relative group inline-flex items-center gap-1 px-3 py-1 text-xs font-bold tracking-wider uppercase border text-[#4A7C59] border-[#4A7C59]/30 bg-[#4A7C59]/10 ${geo.className}`}
+            >
+              UPDATED DAILY
+              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max px-3 py-2 text-xs bg-[#1A1A1A] border border-[#4A7C59]/30 text-[#F5F5F5] rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+                Update your allocation and eligibility; changes apply the next
+                day.
+              </span>
+            </span>
+          </div>
+          <div className="space-y-1 text-sm">
+            <div className="text-[#F5F5F5]/80 text-xs mb-2">
+              Eligible tokens:{" "}
+              <span className="text-[#4A7C59] font-semibold">
+                veBAO, veFXN, and liquid lockers
               </span>
             </div>
-            <div className="space-y-1 text-sm">
-              <div className="text-[#F5F5F5]/80 text-xs mb-2">
-                Eligible tokens:{" "}
-                <span className="text-[#4A7C59] font-semibold">
-                  veBAO, veFXN, and liquid lockers
-                </span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-[#F5F5F5]/60">Eligible Users:</span>
-                <span className="text-[#4A7C59] text-xs font-semibold">
-                  {idoAddresses.length.toLocaleString()}
-                </span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-[#F5F5F5]/60">1 veBAO =</span>
-                <span className="text-[#4A7C59] font-semibold font-mono text-xs">
-                  0.25 STEAM
-                </span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-[#F5F5F5]/60">1 veFXN =</span>
-                <span className="text-[#4A7C59] font-semibold font-mono text-xs">
-                  150 STEAM
-                </span>
-              </div>
-              <div className="pt-2 border-t border-[#4A7C59]/20 text-xs space-y-1">
-                <div className="text-[#F5F5F5]/70">
-                  Did we miss a liquid wrapper?{" "}
-                  <a
-                    href="https://discord.com/invite/BW3P62vJXT"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#4A7C59] hover:text-[#5A8B69] underline transition-colors"
-                  >
-                    Reach out on Discord
-                  </a>
-                </div>
+            <div className="flex justify-between items-center">
+              <span className="text-[#F5F5F5]/60">Eligible Users:</span>
+              <span className="text-[#4A7C59] text-xs font-semibold">
+                {idoAddresses.length.toLocaleString()}
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-[#F5F5F5]/60">1 veBAO =</span>
+              <span className="text-[#4A7C59] font-semibold font-mono text-xs">
+                0.25 STEAM
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-[#F5F5F5]/60">1 veFXN =</span>
+              <span className="text-[#4A7C59] font-semibold font-mono text-xs">
+                150 STEAM
+              </span>
+            </div>
+            <div className="pt-2 border-t border-[#4A7C59]/20 text-xs space-y-1">
+              <div className="text-[#F5F5F5]/70">
+                Did we miss a liquid wrapper?{" "}
+                <a
+                  href="https://discord.com/invite/BW3P62vJXT"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#4A7C59] hover:text-[#5A8B69] underline transition-colors"
+                >
+                  Reach out on Discord
+                </a>
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-3 hover:border-[#4A7C59]/40 transition-colors">
-            <h3
-              className={`text-base font-bold text-[#F5F5F5] mb-2 ${geo.className}`}
-            >
-              Pricing & Allocation
-            </h3>
-            <div className="space-y-1 text-sm">
-              <div className="flex justify-between">
-                <span className="text-[#F5F5F5]/60">Community Price:</span>
-                <span className="text-[#4A7C59] font-semibold">$0.08</span>
+        <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-8 hover:border-[#4A7C59]/40 transition-colors">
+          <h3
+            className={`text-base font-bold text-[#F5F5F5] mb-2 ${geo.className}`}
+          >
+            Pricing & Allocation
+          </h3>
+          <div className="space-y-1 text-sm">
+            <div className="flex justify-between">
+              <span className="text-[#F5F5F5]/60">Community Price:</span>
+              <span className="text-[#4A7C59] font-semibold">$0.08</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-[#F5F5F5]/60">Public Price:</span>
+              <span className="text-[#F5F5F5]/80 font-semibold">$0.12</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-[#F5F5F5]/60">Discount:</span>
+              <span className="text-green-400 font-semibold">33% off</span>
+            </div>
+            <div className="pt-2 border-t border-[#4A7C59]/20 text-xs space-y-1">
+              <div className="text-[#F5F5F5]/70">
+                Note: Discounted allocations are filled first. All deposits are
+                filled equally to ensure fair distribution.
               </div>
-              <div className="flex justify-between">
-                <span className="text-[#F5F5F5]/60">Public Price:</span>
-                <span className="text-[#F5F5F5]/80 font-semibold">$0.12</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-[#F5F5F5]/60">Discount:</span>
-                <span className="text-green-400 font-semibold">33% off</span>
-              </div>
-              <div className="pt-2 border-t border-[#4A7C59]/20 text-xs space-y-1">
-                <div className="text-[#F5F5F5]/70">
-                  Note: Discounted allocations are filled first. All deposits
-                  are filled equally to ensure fair distribution.
-                </div>
-                <div className="text-[#F5F5F5]/70">
-                  You can deposit more than your max allocation - additional
-                  funds are used to purchase tokens at the public sale price.
-                </div>
+              <div className="text-[#F5F5F5]/70">
+                You can deposit more than your max allocation - additional funds
+                are used to purchase tokens at the public sale price.
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
