@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { TransactionProvider } from "@/contexts/Transactions";
+import NotificationWrapper from "@/components/NotificationWrapper";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -19,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.className} antialiased`}>{children}
+      <body className={`${spaceGrotesk.className} antialiased`}>
+        <TransactionProvider>
+          <NotificationWrapper />
+          {children}
+        </TransactionProvider>
       </body>
     </html>
   );

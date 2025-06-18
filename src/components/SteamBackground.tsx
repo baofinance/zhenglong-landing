@@ -29,4 +29,4 @@ const SteamBackground = () => {
   );
 };
 
-export default SteamBackground; 
+export default SteamBackground;
