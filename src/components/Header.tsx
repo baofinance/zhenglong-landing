@@ -13,7 +13,10 @@ const Header: React.FC<HeaderProps> = ({ geoClassName }) => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1A1A1A]/90 backdrop-blur-sm border-b border-[#4A7C59]/20 w-full px-6">
       <div className="flex items-center justify-between h-16 w-full max-w-7xl mx-auto">
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <Link
+          href="/"
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+        >
           <div className="w-8 h-8 flex items-center justify-center">
             <Image
               src="/logo.svg"
@@ -28,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ geoClassName }) => {
           >
             ZHENGLONG
           </span>
-        </div>
+        </Link>
 
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-8">
@@ -46,22 +49,22 @@ const Header: React.FC<HeaderProps> = ({ geoClassName }) => {
               Governance
             </a>
           </ComingSoonOverlay>
-          <ComingSoonOverlay>
-            <a
-              href="#"
-              className="text-[#F5F5F5]/50 tracking-wider cursor-not-allowed whitespace-nowrap"
-            >
-              Discord
-            </a>
-          </ComingSoonOverlay>
-          <ComingSoonOverlay>
-            <a
-              href="#"
-              className="text-[#F5F5F5]/50 tracking-wider cursor-not-allowed whitespace-nowrap"
-            >
-              Bug Bounty
-            </a>
-          </ComingSoonOverlay>
+          <a
+            href="https://discord.com/invite/BW3P62vJXT"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#F5F5F5]/80 hover:text-[#F5F5F5] tracking-wider transition-colors whitespace-nowrap"
+          >
+            Discord
+          </a>
+          <a
+            href="https://litepaper.zhenglong.finance"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#F5F5F5]/80 hover:text-[#F5F5F5] tracking-wider transition-colors whitespace-nowrap"
+          >
+            Litepaper
+          </a>
         </div>
 
         {/* Launch App Button */}
@@ -93,4 +96,4 @@ const Header: React.FC<HeaderProps> = ({ geoClassName }) => {
   );
 };
 
-export default Header; 
+export default Header;

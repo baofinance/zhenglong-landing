@@ -1,4 +1,4 @@
-// File: /home/haruxe/Projects/zhenglong/zhenglong-landing/src/app/layout.tsx
+// File: /Users/andrewyoung/Documents/BaoGit/Zhrnglong Landing/zhenglong-landing/src/app/layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
