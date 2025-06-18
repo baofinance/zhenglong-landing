@@ -252,7 +252,7 @@ export default function IdoDashboard() {
         const tokensSoldWei = (tokensSoldAmount * Math.pow(10, 18)).toString(); // Convert to 18-decimal format
 
         // Calculate remaining tokens
-        const totalSupplyAmount = 125000000; // 125M tokens
+        const totalSupplyAmount = 6000000; // 6M tokens
         const remainingTokensAmount = totalSupplyAmount - tokensSoldAmount;
         const remainingTokensWei = (
           remainingTokensAmount * Math.pow(10, 18)
@@ -263,7 +263,7 @@ export default function IdoDashboard() {
           saleStart: saleStartTimestamp,
           saleEnd: saleEndTimestamp,
           salePrice: "80000", // $0.08 USDC (6 decimals: 0.08 * 10^6)
-          totalSupply: "125000000000000000000000000", // 125M tokens (18 decimals)
+          totalSupply: "6000000000000000000000000", // 6M tokens (18 decimals)
           tokensSold: tokensSoldWei,
           totalRaised: totalRaisedRaw.toString(), // Keep in 6-decimal format for display
           totalParticipants: (totalParticipantsResult.value as number) || 0,
