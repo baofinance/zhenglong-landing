@@ -17,6 +17,40 @@ export default function IdoPage() {
   const [discount, setDiscount] = useState<number>(0);
   const [userTotalDeposited, setUserTotalDeposited] = useState<number>(0);
   const [isEligible, setIsEligible] = useState<boolean>(false);
+  const [isConnecting, setIsConnecting] = useState(false);
+
+  const disconnectWallet = async () => {
+    // For now, we'll just clear the wallet address to simulate a disconnect
+    // A more robust solution might involve interacting with the wallet provider
+    setWalletAddress("");
+    setDiscount(0);
+    setUserTotalDeposited(0);
+    setIsEligible(false);
+  };
+
+  const connectWallet = async () => {
+    setIsConnecting(true);
+    try {
+      if (typeof window !== "undefined" && window.ethereum) {
+        await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        // The 'accountsChanged' event will handle the rest, but we'll also manually refresh
+        await checkWalletAndFetchData();
+      } else {
+        alert("Web3 wallet not detected. Please install MetaMask.");
+      }
+    } catch (error: any) {
+      console.error("Failed to connect wallet:", error);
+      if (error.code === 4001) {
+        alert("Please approve the connection in your wallet.");
+      } else {
+        alert("Failed to connect wallet. Please try again.");
+      }
+    } finally {
+      setIsConnecting(false);
+    }
+  };
 
   const checkWalletAndFetchData = useCallback(async () => {
     if (typeof window !== "undefined" && window.ethereum) {
@@ -111,7 +145,14 @@ export default function IdoPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1A1A1A] to-black text-[#F5F5F5] font-sans relative">
       <SteamBackground />
-      <Header geoClassName={geo.className} />
+      <Header
+        geoClassName={geo.className}
+        page="ido"
+        walletAddress={walletAddress}
+        isConnecting={isConnecting}
+        connectWallet={connectWallet}
+        disconnectWallet={disconnectWallet}
+      />
 
       {/* Main Content */}
       <main className="relative z-10 pt-16">
@@ -165,6 +206,8 @@ export default function IdoPage() {
               walletAddress={walletAddress}
               isEligible={isEligible}
               onSuccessfulDeposit={checkWalletAndFetchData}
+              connectWallet={connectWallet}
+              isConnecting={isConnecting}
             />
             <div className="flex flex-col gap-4">
               <UserAllocation

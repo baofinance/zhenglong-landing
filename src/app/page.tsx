@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <div className="min-h-screen bg-gradient-to-b from-[#1A1A1A] to-black text-[#F5F5F5] font-sans relative">
         <SteamBackground />
-        <Header geoClassName={geo.className} />
+        <Header geoClassName={geo.className} page="landing" />
 
         {/* Main Content */}
         <main className="relative z-10 pt-16">

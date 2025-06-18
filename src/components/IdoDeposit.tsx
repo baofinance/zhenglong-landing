@@ -29,17 +29,20 @@ interface IdoDepositProps {
   walletAddress: string;
   isEligible: boolean;
   onSuccessfulDeposit: () => void;
+  connectWallet: () => Promise<void>;
+  isConnecting: boolean;
 }
 
 export default function IdoDeposit({
   walletAddress,
   isEligible,
   onSuccessfulDeposit,
+  connectWallet,
+  isConnecting,
 }: IdoDepositProps) {
   const [usdcBalance, setUsdcBalance] = useState<string>("0");
   const [usdcAllowance, setUsdcAllowance] = useState<string>("0");
   const [depositAmount, setDepositAmount] = useState<string>("");
-  const [isConnecting, setIsConnecting] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [lastDepositDetails, setLastDepositDetails] = useState<{
     amount: number;
@@ -57,30 +60,6 @@ export default function IdoDeposit({
       await fetchUSDCAllowance(walletAddress);
     }
   });
-
-  // Connect wallet
-  const connectWallet = async () => {
-    setIsConnecting(true);
-    try {
-      if (typeof window !== "undefined" && window.ethereum) {
-        await window.ethereum.request({
-          method: "eth_requestAccounts",
-        });
-        // Parent component will handle the state update via 'accountsChanged' event
-      } else {
-        alert("Web3 wallet not detected. Please install MetaMask.");
-      }
-    } catch (error: any) {
-      console.error("Failed to connect wallet:", error);
-      if (error.code === 4001) {
-        alert("Please approve the connection in your wallet.");
-      } else {
-        alert("Failed to connect wallet. Please try again.");
-      }
-    } finally {
-      setIsConnecting(false);
-    }
-  };
 
   // Fetch USDC balance
   const fetchUSDCBalance = async (address: string) => {
