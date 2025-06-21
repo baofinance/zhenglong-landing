@@ -1,7 +1,7 @@
 "use client";
 import { geo } from "@/utils/fonts";
 
-// Import all new components
+// Import all components
 import Header from "@/components/Header";
 import SteamBackground from "@/components/SteamBackground";
 import IdoBanner from "@/components/IdoBanner";
