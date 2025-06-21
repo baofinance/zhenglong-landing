@@ -88,7 +88,12 @@ const HeroSection = () => {
   );
 
   return (
-    <div className="relative w-full min-h-[80vh] overflow-hidden pt-8 bg-black">
+    <div
+      className={`relative w-full min-h-[80vh] overflow-hidden pt-8 bg-black ${
+        showSplash ? "cursor-pointer" : ""
+      }`}
+      onClick={showSplash ? handleSkip : undefined}
+    >
       {/* Background Pattern */}
       <div className="absolute inset-0 w-full h-full">
         {/* Base gradient */}
@@ -125,10 +130,7 @@ const HeroSection = () => {
       <section className="container mx-auto px-4 sm:px-6 py-16 relative z-10">
         <div className="text-center pt-40 px-2 sm:px-0">
           {showSplash ? (
-            <div
-              className="flex justify-center items-center w-full cursor-pointer min-h-[14rem]"
-              onClick={handleSkip}
-            >
+            <div className="flex justify-center items-center w-full min-h-[14rem]">
               <div
                 className={`absolute top-8 right-8 text-[#F5F5F5]/60 text-sm tracking-wider uppercase ${geo.className} pointer-events-none`}
               >
