@@ -77,7 +77,7 @@ export default function IdoPage() {
             const { rounded, protocol } = entry;
             let computed = 0;
             if (protocol === "veFXN") {
-              computed = rounded * 150;
+              computed = rounded * 1000;
             } else if (protocol === "veBAO") {
               computed = rounded * 0.25;
             }

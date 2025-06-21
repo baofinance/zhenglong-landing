@@ -393,7 +393,7 @@ export default function IdoDashboard() {
             <div className="flex justify-between">
               <span className="text-[#F5F5F5]/60">1 veFXN =</span>
               <span className="text-[#4A7C59] font-semibold font-mono text-xs">
-                150 STEAM
+                1000 STEAM
               </span>
             </div>
             <div className="pt-2 border-t border-[#4A7C59]/20 text-xs space-y-1">
