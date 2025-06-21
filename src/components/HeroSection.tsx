@@ -135,27 +135,25 @@ const HeroSection = () => {
                 Click anywhere to skip →
               </div>
               <div className="inline-grid min-h-[8rem] items-center">
+                {/* 1. Invisible Sizer - includes a non-blinking cursor to reserve space */}
                 <div
                   aria-hidden="true"
                   className={`invisible text-left row-start-1 col-start-1 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-[0.05em] sm:tracking-[0.1em] ${geo.className}`}
                 >
-                  <span className="relative">
-                    {longestMessage}
-                    <span className="absolute left-full top-0 text-[#4A7C59]">
-                      |
-                    </span>
-                  </span>
+                  {longestMessage}
+                  <span className="text-[#4A7C59]">|</span>
                 </div>
+                {/* 2. Visible Typing Text - with an opacity-blinking cursor */}
                 <div
                   className={`text-left row-start-1 col-start-1 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#F5F5F5] tracking-[0.05em] sm:tracking-[0.1em] ${geo.className}`}
                 >
-                  <span className="relative">
-                    {displayText}
-                    {showCursor && (
-                      <span className="absolute left-full top-0 text-[#4A7C59]">
-                        |
-                      </span>
-                    )}
+                  {displayText}
+                  <span
+                    className={`transition-opacity duration-150 text-[#4A7C59] ${
+                      showCursor ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    |
                   </span>
                 </div>
               </div>
