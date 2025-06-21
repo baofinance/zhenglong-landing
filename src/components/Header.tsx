@@ -82,6 +82,14 @@ const Header: React.FC<HeaderProps> = ({
             Discord
           </a>
           <a
+            href="https://x.com/ZhenglongFi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#F5F5F5]/80 hover:text-[#F5F5F5] tracking-wider transition-colors whitespace-nowrap"
+          >
+            X
+          </a>
+          <a
             href="https://litepaper.zhenglong.finance"
             target="_blank"
             rel="noopener noreferrer"
@@ -92,7 +100,7 @@ const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Action Button */}
-        <div className="relative" ref={menuRef}>
+        <div className="hidden md:flex relative" ref={menuRef}>
           {page === "ido" ? (
             walletAddress && connectWallet ? (
               <button
@@ -135,7 +143,10 @@ const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden text-[#F5F5F5] hover:text-[#F5F5F5]/80 transition-colors">
+        <button
+          className="md:hidden text-[#F5F5F5] hover:text-[#F5F5F5]/80 transition-colors"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
           {/* Menu Icon */}
           <svg
             className="w-6 h-6"
@@ -149,6 +160,87 @@ const Header: React.FC<HeaderProps> = ({
             <path d="M3 18h18" />
           </svg>
         </button>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-16 left-0 w-full bg-[#1A1A1A] border-t border-[#4A7C59]/20 shadow-lg">
+            <div className="flex flex-col items-center gap-4 py-4">
+              <a
+                href="https://docs.zhenglong.finance"
+                className="text-[#F5F5F5]/80 hover:text-[#F5F5F5] tracking-wider transition-colors"
+              >
+                Docs
+              </a>
+              <a
+                href="#"
+                className="text-[#F5F5F5]/50 tracking-wider cursor-not-allowed"
+              >
+                Governance
+              </a>
+              <a
+                href="https://discord.com/invite/BW3P62vJXT"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#F5F5F5]/80 hover:text-[#F5F5F5] tracking-wider transition-colors"
+              >
+                Discord
+              </a>
+              <a
+                href="https://x.com/ZhenglongFi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#F5F5F5]/80 hover:text-[#F5F5F5] tracking-wider transition-colors"
+              >
+                X
+              </a>
+              <a
+                href="https://litepaper.zhenglong.finance"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#F5F5F5]/80 hover:text-[#F5F5F5] tracking-wider transition-colors"
+              >
+                Litepaper
+              </a>
+              <div className="mt-4">
+                {page === "ido" ? (
+                  walletAddress && connectWallet ? (
+                    <div className="flex flex-col items-center gap-4">
+                      <div
+                        className={`bg-[#4A7C59]/50 px-6 py-2 text-white/50 text-lg tracking-wider uppercase ${geoClassName}`}
+                      >
+                        {walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}
+                      </div>
+                      <button
+                        onClick={() => {
+                          if (disconnectWallet) disconnectWallet();
+                          setIsMenuOpen(false);
+                        }}
+                        className="text-sm text-[#F5F5F5]/80 hover:text-[#F5F5F5]"
+                      >
+                        Disconnect
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={connectWallet}
+                      disabled={isConnecting}
+                      className={`bg-[#4A7C59] hover:bg-[#5A8B69] px-6 py-2 text-white text-lg tracking-wider uppercase transition-colors disabled:bg-[#4A7C59]/50 ${geoClassName}`}
+                    >
+                      {isConnecting ? "Connecting..." : "Connect Wallet"}
+                    </button>
+                  )
+                ) : (
+                  <Link
+                    href="/ido"
+                    className={`bg-[#4A7C59] hover:bg-[#5A8B69] px-6 py-2 text-white text-lg tracking-wider uppercase transition-colors ${geoClassName}`}
+                  >
+                    Launch App
+                  </Link>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
