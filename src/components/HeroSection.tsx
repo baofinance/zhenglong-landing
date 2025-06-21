@@ -39,16 +39,16 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <section className="container mx-auto px-6 py-16 relative z-10">
-        <div className="text-center pt-40">
+      <section className="container mx-auto px-4 sm:px-6 py-16 relative z-10">
+        <div className="text-center pt-40 px-2 sm:px-0">
           <h1
-            className={`text-7xl md:text-8xl font-normal mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#4A7C59] to-[#6B9E76] tracking-[0.2em] uppercase ${geo.className}`}
+            className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#4A7C59] to-[#6B9E76] tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] uppercase ${geo.className}`}
           >
             ZHENGLONG
           </h1>
           <p className="text-xl md:text-2xl text-[#F5F5F5]/80 mb-8 tracking-wider font-light">
-            Freshly steamed protected leverage tokens, paired with
-            high-yield pegged stability.
+            Freshly steamed protected leverage tokens, paired with high-yield
+            pegged stability.
           </p>
           <div className="flex justify-center gap-6">
             <ComingSoonOverlay>
@@ -73,4 +73,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection; 
+export default HeroSection;
