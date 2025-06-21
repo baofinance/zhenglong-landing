@@ -139,14 +139,24 @@ const HeroSection = () => {
                   aria-hidden="true"
                   className={`invisible text-left row-start-1 col-start-1 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-[0.05em] sm:tracking-[0.1em] ${geo.className}`}
                 >
-                  {longestMessage}
-                  <span className="text-[#4A7C59]">|</span>
+                  <span className="relative">
+                    {longestMessage}
+                    <span className="absolute left-full top-0 text-[#4A7C59]">
+                      |
+                    </span>
+                  </span>
                 </div>
                 <div
                   className={`text-left row-start-1 col-start-1 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#F5F5F5] tracking-[0.05em] sm:tracking-[0.1em] ${geo.className}`}
                 >
-                  {displayText}
-                  {showCursor && <span className="text-[#4A7C59]">|</span>}
+                  <span className="relative">
+                    {displayText}
+                    {showCursor && (
+                      <span className="absolute left-full top-0 text-[#4A7C59]">
+                        |
+                      </span>
+                    )}
+                  </span>
                 </div>
               </div>
             </div>
