@@ -186,8 +186,8 @@ const HeroSection = () => {
                 <p
                   className={`text-xl md:text-2xl text-[#F5F5F5]/80 mb-8 tracking-wider font-light ${geo.className}`}
                 >
-                  Yield Like Never Before, For EVERY asset. Leverage protected
-                  from Liquidation.
+                  Yield like never before, for EVERY asset. Leverage protected
+                  from liquidation.
                 </p>
                 <div className="flex justify-center gap-6">
                   <ComingSoonOverlay>
