@@ -3,6 +3,7 @@ import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { TransactionProvider } from "@/contexts/Transactions";
 import NotificationWrapper from "@/components/NotificationWrapper";
+import { Analytics } from "@vercel/analytics/next";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
         <TransactionProvider>
           <NotificationWrapper />
           {children}
+          <Analytics />
         </TransactionProvider>
       </body>
     </html>
