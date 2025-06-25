@@ -23,7 +23,7 @@ const StabilityPoolsSection = () => {
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           {/* Left Column - Security */}
           <div className="space-y-8 h-full">
-            <div className="bg-black p-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] min-h-[400px] flex flex-col">
+            <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-8 min-h-[400px] flex flex-col">
               <h3
                 className={`text-3xl text-[#4A7C59] mb-6 text-center uppercase tracking-wider font-semibold ${geo.className}`}
               >
@@ -44,8 +44,8 @@ const StabilityPoolsSection = () => {
                     </h4>
                     <p className="text-[#F5F5F5]/70 leading-relaxed">
                       Stability pools act as a stability mechanism by
-                      automatically adjusting collateral ratios during
-                      market stress, ensuring protocol solvency.
+                      automatically adjusting collateral ratios during market
+                      stress, ensuring protocol solvency.
                     </p>
                   </div>
                 </div>
@@ -62,9 +62,9 @@ const StabilityPoolsSection = () => {
                       Automated Rebalancing
                     </h4>
                     <p className="text-[#F5F5F5]/70 leading-relaxed">
-                      When collateral ratios reach predefined thresholds,
-                      pools automatically swap tokens to maintain optimal
-                      system health.
+                      When collateral ratios reach predefined thresholds, pools
+                      automatically swap tokens to maintain optimal system
+                      health.
                     </p>
                   </div>
                 </div>
@@ -74,7 +74,7 @@ const StabilityPoolsSection = () => {
 
           {/* Right Column - Yield */}
           <div className="space-y-8 h-full">
-            <div className="bg-black p-8 shadow-[0_0_15px_rgba(74,124,89,0.1)] min-h-[400px] flex flex-col">
+            <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-8 min-h-[400px] flex flex-col">
               <h3
                 className={`text-3xl text-[#4A7C59] mb-6 text-center uppercase tracking-wider font-semibold ${geo.className}`}
               >
@@ -94,9 +94,9 @@ const StabilityPoolsSection = () => {
                       Collateral Yield
                     </h4>
                     <p className="text-[#F5F5F5]/70 leading-relaxed">
-                      Earn yield from stETH and other yield-bearing
-                      collateral tokens used in the protocol, distributed
-                      to rebalance pool depositors.
+                      Earn yield from stETH and other yield-bearing collateral
+                      tokens used in the protocol, distributed to rebalance pool
+                      depositors.
                     </p>
                   </div>
                 </div>
@@ -114,8 +114,8 @@ const StabilityPoolsSection = () => {
                     </h4>
                     <p className="text-[#F5F5F5]/70 leading-relaxed">
                       Receive STEAM tokens as additional rewards for
-                      participating in stability pools, enhancing your
-                      overall yield.
+                      participating in stability pools, enhancing your overall
+                      yield.
                     </p>
                   </div>
                 </div>
@@ -139,4 +139,4 @@ const StabilityPoolsSection = () => {
   );
 };
 
-export default StabilityPoolsSection; 
+export default StabilityPoolsSection;

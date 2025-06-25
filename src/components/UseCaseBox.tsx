@@ -25,14 +25,14 @@ const UseCaseBox = ({
       onBlur={() => setFlipped(false)}
     >
       <div
-        className={`relative w-full h-full transition-all duration-300 [transform-style:preserve-3d] ${ 
+        className={`relative w-full h-full transition-all duration-300 [transform-style:preserve-3d] ${
           flipped ? "[transform:rotateY(180deg)]" : "[transform:rotateY(0deg)]"
         }`}
       >
         {/* Front Side */}
-        <div className="absolute inset-0 h-full w-full bg-[#4A7C59]/80 p-6 pt-10 shadow-[0_0_15px_rgba(74,124,89,0.1)] border border-[#4A7C59]/20 flex flex-col items-center justify-center transition-all relative [backface-visibility:hidden]">
+        <div className="absolute inset-0 h-full w-full bg-[#1A1A1A]/90 backdrop-blur-sm p-6 pt-10 border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors flex flex-col items-center justify-center relative [backface-visibility:hidden]">
           <span
-            className={`text-3xl text-[#F5F5F5]/80 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+            className={`text-3xl text-[#4A7C59] text-center uppercase tracking-wider font-semibold ${geo.className}`}
           >
             {title}
           </span>
@@ -51,7 +51,7 @@ const UseCaseBox = ({
           </svg>
         </div>
         {/* Back Side */}
-        <div className="absolute inset-0 h-full w-full bg-black p-6 pt-10 shadow-[0_0_15px_rgba(74,124,89,0.1)] border border-[#4A7C59]/20 flex flex-col items-center justify-center transition-all [transform:rotateY(180deg)] [backface-visibility:hidden]">
+        <div className="absolute inset-0 h-full w-full bg-[#1A1A1A]/90 backdrop-blur-sm p-6 pt-10 border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors flex flex-col items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
           <div className="text-[#F5F5F5]/80 text-base leading-relaxed mb-2 text-center">
             {summary}
           </div>
@@ -64,4 +64,4 @@ const UseCaseBox = ({
   );
 };
 
-export default UseCaseBox; 
+export default UseCaseBox;

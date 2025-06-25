@@ -29,10 +29,7 @@ const SecuritySection = () => {
           </h2>
         </div>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div
-            className="p-8 border-2 border-[#4A7C59] flex flex-col items-start relative z-20"
-            style={{ backgroundColor: "#000000", opacity: 1 }}
-          >
+          <div className="p-8 flex flex-col items-start relative z-20 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors">
             <h3
               className={`text-2xl font-semibold mb-2 text-[#4A7C59] tracking-wider uppercase ${geo.className}`}
             >
@@ -43,10 +40,7 @@ const SecuritySection = () => {
               by a leading third-party firm before mainnet launch.
             </p>
           </div>
-          <div
-            className="p-8 border-2 border-[#4A7C59] flex flex-col items-start relative z-20"
-            style={{ backgroundColor: "#000000", opacity: 1 }}
-          >
+          <div className="p-8 flex flex-col items-start relative z-20 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors">
             <h3
               className={`text-2xl font-semibold mb-2 text-[#4A7C59] tracking-wider uppercase ${geo.className}`}
             >
@@ -58,10 +52,7 @@ const SecuritySection = () => {
               risk management.
             </p>
           </div>
-          <div
-            className="p-8 border-2 border-[#4A7C59] flex flex-col items-start relative z-20"
-            style={{ backgroundColor: "#000000", opacity: 1 }}
-          >
+          <div className="p-8 flex flex-col items-start relative z-20 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors">
             <h3
               className={`text-2xl font-semibold mb-2 text-[#4A7C59] tracking-wider uppercase ${geo.className}`}
             >

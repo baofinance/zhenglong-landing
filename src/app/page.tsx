@@ -23,7 +23,6 @@ export default function Home() {
 
         {/* Main Content */}
         <main className="relative z-10 pt-16">
-          <IdoBanner />
           <HeroSection />
           <FeaturesSection />
           <StabilityPoolsSection />

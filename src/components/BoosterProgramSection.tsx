@@ -31,7 +31,7 @@ const BoosterProgramSection = () => {
 
             {/* Four Boxes Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-black p-6 pt-10 shadow-[0_0_15px_rgba(74,124,89,0.1)] relative">
+              <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-6 pt-10 relative">
                 <div className="absolute left-1/2 -translate-x-1/2 -top-6 w-12 h-12 bg-[#4A7C59] flex items-center justify-center">
                   <img
                     src="/social.svg"
@@ -49,7 +49,7 @@ const BoosterProgramSection = () => {
                   about the protocol
                 </p>
               </div>
-              <div className="bg-black p-6 pt-10 shadow-[0_0_15px_rgba(74,124,89,0.1)] relative">
+              <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-6 pt-10 relative">
                 <div className="absolute left-1/2 -translate-x-1/2 -top-6 w-12 h-12 bg-[#4A7C59] flex items-center justify-center">
                   <img
                     src="/content.svg"
@@ -67,7 +67,7 @@ const BoosterProgramSection = () => {
                   content about Zhenglong
                 </p>
               </div>
-              <div className="bg-black p-6 pt-10 shadow-[0_0_15px_rgba(74,124,89,0.1)] relative">
+              <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-6 pt-10 relative">
                 <div className="absolute left-1/2 -translate-x-1/2 -top-6 w-12 h-12 bg-[#4A7C59] flex items-center justify-center">
                   <img
                     src="/art.svg"
@@ -84,7 +84,7 @@ const BoosterProgramSection = () => {
                   Create artwork, memes, and visual content to promote Zhenglong
                 </p>
               </div>
-              <div className="bg-black p-6 pt-10 shadow-[0_0_15px_rgba(74,124,89,0.1)] relative">
+              <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-6 pt-10 relative">
                 <div className="absolute left-1/2 -translate-x-1/2 -top-6 w-12 h-12 bg-[#4A7C59] flex items-center justify-center">
                   <img
                     src="/community.svg"
@@ -123,7 +123,7 @@ const BoosterProgramSection = () => {
 
             {/* Become a Booster Box */}
             <div className="max-w-2xl mx-auto">
-              <div className="bg-black p-6 shadow-[0_0_15px_rgba(74,124,89,0.1)] relative">
+              <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-6 relative">
                 <div className="flex flex-col items-center justify-center text-center">
                   <div className="space-y-3">
                     <div

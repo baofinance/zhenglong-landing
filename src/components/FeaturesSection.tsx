@@ -23,15 +23,15 @@ const FeaturesSection = () => {
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start mb-12">
             <div className="lg:col-span-2">
-              <div className="text-center w-full max-w-4xl mx-auto h-full p-6 pt-10 bg-black shadow-[0_0_15px_rgba(74,124,89,0.1)] relative">
+              <div className="text-center w-full max-w-4xl mx-auto h-full p-6 pt-10 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors relative">
                 <div
                   className={`text-3xl md:text-4xl mb-6 text-[#4A7C59] ${geo.className}`}
                 >
                   ZHE TOKENS
                 </div>
                 <p className="text-[#F5F5F5]/70 leading-relaxed tracking-wide font-light mb-8">
-                  High yield pegged tokens that track price feeds with
-                  1:1, with built in real yield via stability pools
+                  High yield pegged tokens that track price feeds with 1:1, with
+                  built in real yield via stability pools
                 </p>
                 {/* Scrolling green flip cards */}
                 <div className="flex flex-col md:flex-row justify-center items-center w-full mb-4 gap-2 md:gap-4">
@@ -54,19 +54,15 @@ const FeaturesSection = () => {
               </div>
             </div>
             <div className="lg:col-span-1 flex flex-col gap-4 h-full min-h-0">
-              <div className="flex flex-row items-center gap-4 bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] px-4 py-4 relative overflow-visible flex-1 min-h-20">
+              <div className="flex flex-row items-center gap-4 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors rounded-sm px-4 py-4 relative overflow-visible flex-1 min-h-20">
                 <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
-                  <img
-                    src="/yield.svg"
-                    alt="Yield Icon"
-                    className="w-8 h-8"
-                  />
+                  <img src="/yield.svg" alt="Yield Icon" className="w-8 h-8" />
                 </div>
                 <p className="text-sm text-[#F5F5F5]/70 text-left break-words">
                   Earn real yield from stability pools
                 </p>
               </div>
-              <div className="flex flex-row items-center gap-4 bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] px-4 py-4 relative overflow-visible flex-1 min-h-20">
+              <div className="flex flex-row items-center gap-4 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors rounded-sm px-4 py-4 relative overflow-visible flex-1 min-h-20">
                 <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
                   <img
                     src="/rocket.svg"
@@ -78,13 +74,9 @@ const FeaturesSection = () => {
                   Earn STEAM from AMM liquidity
                 </p>
               </div>
-              <div className="flex flex-row items-center gap-4 bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] px-4 py-4 relative overflow-visible flex-1 min-h-20">
+              <div className="flex flex-row items-center gap-4 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors rounded-sm px-4 py-4 relative overflow-visible flex-1 min-h-20">
                 <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
-                  <img
-                    src="/defi.svg"
-                    alt="DeFi Icon"
-                    className="w-8 h-8"
-                  />
+                  <img src="/defi.svg" alt="DeFi Icon" className="w-8 h-8" />
                 </div>
                 <p className="text-sm text-[#F5F5F5]/70 text-left break-words">
                   Use in Defi
@@ -94,15 +86,15 @@ const FeaturesSection = () => {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-2">
-              <div className="text-center w-full max-w-4xl mx-auto h-full p-6 pt-10 bg-black shadow-[0_0_15px_rgba(74,124,89,0.1)] relative">
+              <div className="text-center w-full max-w-4xl mx-auto h-full p-6 pt-10 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors relative">
                 <div
                   className={`text-3xl md:text-4xl mb-6 text-[#4A7C59] ${geo.className}`}
                 >
                   STEAMED TOKENS
                 </div>
                 <p className="text-[#F5F5F5]/70 leading-relaxed tracking-wide font-light mb-8">
-                  Get supercharged market exposure through
-                  liquidation-protected variable leverage tokens
+                  Get supercharged market exposure through liquidation-protected
+                  variable leverage tokens
                 </p>
                 <div className="flex flex-col md:flex-row justify-center items-center w-full mb-4 gap-2 md:gap-4">
                   <FlipCard
@@ -129,7 +121,7 @@ const FeaturesSection = () => {
               </div>
             </div>
             <div className="lg:col-span-1 flex flex-col gap-4 h-full min-h-0">
-              <div className="flex flex-row items-center gap-4 bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] px-4 py-4 relative overflow-visible flex-1 min-h-20">
+              <div className="flex flex-row items-center gap-4 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors rounded-sm px-4 py-4 relative overflow-visible flex-1 min-h-20">
                 <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
                   <img
                     src="/stability.svg"
@@ -141,7 +133,7 @@ const FeaturesSection = () => {
                   Each token has a bull side and bear side
                 </p>
               </div>
-              <div className="flex flex-row items-center gap-4 bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] px-4 py-4 relative overflow-visible flex-1 min-h-20">
+              <div className="flex flex-row items-center gap-4 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors rounded-sm px-4 py-4 relative overflow-visible flex-1 min-h-20">
                 <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
                   <img
                     src="/rebalance.svg"
@@ -153,13 +145,9 @@ const FeaturesSection = () => {
                   Automated Rebalancing
                 </p>
               </div>
-              <div className="flex flex-row items-center gap-4 bg-black rounded-sm shadow-[0_0_15px_rgba(74,124,89,0.1)] px-4 py-4 relative overflow-visible flex-1 min-h-20">
+              <div className="flex flex-row items-center gap-4 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors rounded-sm px-4 py-4 relative overflow-visible flex-1 min-h-20">
                 <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
-                  <img
-                    src="/defi.svg"
-                    alt="DeFi Icon"
-                    className="w-8 h-8"
-                  />
+                  <img src="/defi.svg" alt="DeFi Icon" className="w-8 h-8" />
                 </div>
                 <p className="text-sm text-[#F5F5F5]/70 text-left break-words">
                   Use in Defi
@@ -173,4 +161,4 @@ const FeaturesSection = () => {
   );
 };
 
-export default FeaturesSection; 
+export default FeaturesSection;

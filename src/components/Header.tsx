@@ -62,6 +62,12 @@ const Header: React.FC<HeaderProps> = ({
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-8">
           <a
+            href="/ido"
+            className="text-[#F5F5F5]/80 hover:text-[#F5F5F5] tracking-wider transition-colors whitespace-nowrap"
+          >
+            IDO
+          </a>
+          <a
             href="https://docs.zhenglong.finance"
             className="text-[#F5F5F5]/80 hover:text-[#F5F5F5] tracking-wider transition-colors whitespace-nowrap"
           >
@@ -119,12 +125,12 @@ const Header: React.FC<HeaderProps> = ({
               </button>
             )
           ) : (
-            <Link
-              href="/ido"
-              className={`bg-[#4A7C59] hover:bg-[#5A8B69] px-6 py-2 text-white text-lg tracking-wider uppercase transition-colors ${geoClassName}`}
+            <button
+              disabled
+              className={`bg-[#4A7C59]/50 px-6 py-2 text-white/50 text-lg tracking-wider uppercase ${geoClassName}`}
             >
               Launch App
-            </Link>
+            </button>
           )}
 
           {isMenuOpen && disconnectWallet && (
@@ -165,6 +171,12 @@ const Header: React.FC<HeaderProps> = ({
         {isMenuOpen && (
           <div className="md:hidden absolute top-16 left-0 w-full bg-[#1A1A1A] border-t border-[#4A7C59]/20 shadow-lg">
             <div className="flex flex-col items-center gap-4 py-4">
+              <a
+                href="/ido"
+                className="text-[#F5F5F5]/80 hover:text-[#F5F5F5] tracking-wider transition-colors"
+              >
+                IDO
+              </a>
               <a
                 href="https://docs.zhenglong.finance"
                 className="text-[#F5F5F5]/80 hover:text-[#F5F5F5] tracking-wider transition-colors"
@@ -230,12 +242,12 @@ const Header: React.FC<HeaderProps> = ({
                     </button>
                   )
                 ) : (
-                  <Link
-                    href="/ido"
-                    className={`bg-[#4A7C59] hover:bg-[#5A8B69] px-6 py-2 text-white text-lg tracking-wider uppercase transition-colors ${geoClassName}`}
+                  <button
+                    disabled
+                    className={`bg-[#4A7C59]/50 px-6 py-2 text-white/50 text-lg tracking-wider uppercase ${geoClassName}`}
                   >
                     Launch App
-                  </Link>
+                  </button>
                 )}
               </div>
             </div>

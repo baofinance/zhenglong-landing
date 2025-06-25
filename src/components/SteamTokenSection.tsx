@@ -21,34 +21,33 @@ const SteamTokenSection = () => {
         </h2>
         <div className="space-y-8">
           <p className="text-xl text-[#F5F5F5]/90 leading-relaxed tracking-wide font-light mb-12 max-w-4xl mx-auto text-center">
-            STEAM is the governance token that powers the Zhenglong
-            Protocol ecosystem, offering holders multiple benefits and
-            control over the protocol&apos;s future.
+            STEAM is the governance token that powers the Zhenglong Protocol
+            ecosystem, offering holders multiple benefits and control over the
+            protocol&apos;s future.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-black p-6 shadow-[0_0_15px_rgba(74,124,89,0.2)] border border-[#4A7C59]/20">
+            <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-6">
               <h3
                 className={`text-3xl text-[#4A7C59] mb-4 text-center uppercase tracking-wider font-semibold ${geo.className}`}
               >
                 Revenue Share
               </h3>
               <p className="text-[#F5F5F5]/80 leading-relaxed tracking-wide font-light">
-                Earn a share of protocol revenue from market operations
-                and fees
+                Earn a share of protocol revenue from market operations and fees
               </p>
             </div>
-            <div className="bg-black p-6 shadow-[0_0_15px_rgba(74,124,89,0.2)] border border-[#4A7C59]/20">
+            <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-6">
               <h3
                 className={`text-3xl text-[#4A7C59] mb-4 text-center uppercase tracking-wider font-semibold ${geo.className}`}
               >
                 Boost Rewards
               </h3>
               <p className="text-[#F5F5F5]/80 leading-relaxed tracking-wide font-light">
-                Increase your earnings from stability pool and AMM
-                liquidity provision
+                Increase your earnings from stability pool and AMM liquidity
+                provision
               </p>
             </div>
-            <div className="bg-black p-6 shadow-[0_0_15px_rgba(74,124,89,0.2)] border border-[#4A7C59]/20">
+            <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-6">
               <h3
                 className={`text-3xl text-[#4A7C59] mb-4 text-center uppercase tracking-wider font-semibold ${geo.className}`}
               >
@@ -82,4 +81,4 @@ const SteamTokenSection = () => {
   );
 };
 
-export default SteamTokenSection; 
+export default SteamTokenSection;

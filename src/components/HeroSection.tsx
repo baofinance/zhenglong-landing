@@ -89,7 +89,7 @@ const HeroSection = () => {
 
   return (
     <div
-      className={`relative w-full min-h-[80vh] overflow-hidden pt-8 bg-black ${
+      className={`relative w-full min-h-screen overflow-hidden pt-16 bg-black ${
         showSplash ? "cursor-pointer" : ""
       }`}
       onClick={showSplash ? handleSkip : undefined}
