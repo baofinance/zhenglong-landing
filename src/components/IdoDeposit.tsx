@@ -302,9 +302,9 @@ export default function IdoDeposit({
 
   if (!walletAddress) {
     return (
-      <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-8">
+      <div className="bg-[#1A1A1A]/90 backdrop-blur-md border border-[#4A7C59]/20 p-8">
         <div className="text-center space-y-6">
-          <div className="w-16 h-16 mx-auto bg-[#4A7C59]/20 flex items-center justify-center">
+          <div className="w-16 h-16 mx-auto bg-[#4A7C59]/20 flex items-center justify-center font-geo">
             <svg
               className="w-8 h-8 text-[#4A7C59]"
               fill="none"
@@ -342,7 +342,7 @@ export default function IdoDeposit({
   }
 
   return (
-    <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-8">
+    <div className="bg-[#1A1A1A]/90 backdrop-blur-md border border-[#4A7C59]/20 p-8">
       <div className="space-y-6">
         <div className="text-center">
           <h3 className={`text-3xl font-normal text-[#4A7C59] font-geo`}>
@@ -386,7 +386,7 @@ export default function IdoDeposit({
                   </span>
                   <button
                     onClick={() => setDepositAmount(usdcBalance)}
-                    className="text-[#4A7C59] hover:text-[#5A8B69] transition-colors"
+                    className="text-[#4A7C59] hover:text-[#5A8B69] transition-colors font-geo"
                   >
                     Max
                   </button>
@@ -455,7 +455,7 @@ export default function IdoDeposit({
           </>
         ) : (
           <div className="bg-[#4A7C59]/10 border border-[#4A7C59]/30 p-6 text-center">
-            <p className="text-[#4A7C59] text-sm font-semibold mb-2">
+            <p className="text-[#4A7C59] text-sm font-semibold mb-2 font-geo">
               You need a veBAO or veFXN position to be eligible for the
               community sale.
             </p>

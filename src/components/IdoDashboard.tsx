@@ -310,11 +310,11 @@ export default function IdoDashboard() {
   return (
     <>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-        <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-2 hover:border-[#4A7C59]/40 transition-colors text-center">
+        <div className="bg-[#1A1A1A]/90 backdrop-blur-md border border-[#4A7C59]/20 p-2 hover:border-[#4A7C59]/40 transition-colors text-center">
           <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
             Tokens Sold
           </div>
-          <div className={`text-[#4A7C59] text-2xl font-bold`}>
+          <div className={`text-[#4A7C59] text-2xl font-normal font-geo`}>
             {formatNumber(contractData.tokensSold)}
           </div>
           <div className="text-[#F5F5F5]/40 text-xs">
@@ -322,42 +322,40 @@ export default function IdoDashboard() {
           </div>
         </div>
 
-        <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-2 hover:border-[#4A7C59]/40 transition-colors text-center">
+        <div className="bg-[#1A1A1A]/90 backdrop-blur-md border border-[#4A7C59]/20 p-2 hover:border-[#4A7C59]/40 transition-colors text-center">
           <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
             Total Raised
           </div>
-          <div className={`text-[#4A7C59] text-2xl font-bold`}>
+          <div className={`text-[#4A7C59] text-2xl font-normal font-geo`}>
             ${formatNumber(contractData.totalRaised, 6)}
           </div>
           <div className="text-[#F5F5F5]/40 text-xs">USDC raised</div>
         </div>
 
-        <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-2 hover:border-[#4A7C59]/40 transition-colors text-center">
+        <div className="bg-[#1A1A1A]/90 backdrop-blur-md border border-[#4A7C59]/20 p-2 hover:border-[#4A7C59]/40 transition-colors text-center">
           <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
             Participants
           </div>
-          <div className={`text-[#4A7C59] text-2xl font-bold`}>
+          <div className={`text-[#4A7C59] text-2xl font-normal font-geo`}>
             {contractData.totalParticipants.toLocaleString()}
           </div>
           <div className="text-[#F5F5F5]/40 text-xs">unique wallets</div>
         </div>
 
-        <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-2 hover:border-[#4A7C59]/40 transition-colors text-center">
+        <div className="bg-[#1A1A1A]/90 backdrop-blur-md border border-[#4A7C59]/20 p-2 hover:border-[#4A7C59]/40 transition-colors text-center">
           <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
             Time Left
           </div>
-          <div className={`text-[#4A7C59] text-2xl font-bold`}>
+          <div className={`text-[#4A7C59] text-2xl font-normal font-geo`}>
             {isMounted ? timeRemaining : "Loading..."}
           </div>
           <div className="text-[#F5F5F5]/40 text-xs">until sale ends</div>
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-        <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-8 hover:border-[#4A7C59]/40 transition-colors">
+        <div className="bg-[#1A1A1A]/90 backdrop-blur-md border border-[#4A7C59]/20 p-8 hover:border-[#4A7C59]/40 transition-colors">
           <div className="flex items-center justify-between mb-2">
-            <h3
-              className={`text-base font-bold text-[#F5F5F5]`}
-            >
+            <h3 className={`text-base font-normal text-[#F5F5F5]`}>
               Eligibility Info
             </h3>
             <span
@@ -373,7 +371,7 @@ export default function IdoDashboard() {
           <div className="space-y-1 text-sm">
             <div className="text-[#F5F5F5]/80 text-xs mb-2">
               Eligible tokens:{" "}
-              <span className="text-[#4A7C59] font-semibold">
+              <span className="text-[#4A7C59] font-semibold font-geo">
                 veBAO, veFXN, and liquid lockers
               </span>
             </div>
@@ -385,13 +383,13 @@ export default function IdoDashboard() {
             </div>
             <div className="flex justify-between">
               <span className="text-[#F5F5F5]/60">1 veBAO =</span>
-              <span className="text-[#4A7C59] font-semibold font-mono text-xs">
+              <span className="text-[#4A7C59] font-semibold font-mono text-xs font-geo">
                 0.25 STEAM
               </span>
             </div>
             <div className="flex justify-between">
               <span className="text-[#F5F5F5]/60">1 veFXN =</span>
-              <span className="text-[#4A7C59] font-semibold font-mono text-xs">
+              <span className="text-[#4A7C59] font-semibold font-mono text-xs font-geo">
                 1000 STEAM
               </span>
             </div>
@@ -402,7 +400,7 @@ export default function IdoDashboard() {
                   href="https://discord.com/invite/BW3P62vJXT"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#4A7C59] hover:text-[#5A8B69] underline transition-colors"
+                  className="text-[#4A7C59] hover:text-[#5A8B69] underline transition-colors font-geo"
                 >
                   Reach out on Discord
                 </a>
@@ -411,10 +409,8 @@ export default function IdoDashboard() {
           </div>
         </div>
 
-        <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-8 hover:border-[#4A7C59]/40 transition-colors">
-          <h3
-            className={`text-base font-bold text-[#F5F5F5] mb-2`}
-          >
+        <div className="bg-[#1A1A1A]/90 backdrop-blur-md border border-[#4A7C59]/20 p-8 hover:border-[#4A7C59]/40 transition-colors">
+          <h3 className={`text-base font-normal text-[#F5F5F5] mb-2`}>
             Pricing & Allocation
           </h3>
           <div className="space-y-1 text-sm">

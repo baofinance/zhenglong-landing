@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import ComingSoonOverlay from "./ComingSoonOverlay";
 
 interface HeaderProps {
   page: "landing" | "ido";
@@ -113,12 +114,14 @@ const Header: React.FC<HeaderProps> = ({
                 </button>
               )
             ) : (
-              <a
-                href="#"
-                className="bg-[#4A7C59] text-white px-6 py-3 tracking-wider uppercase text-xl cursor-not-allowed font-geo"
-              >
-                Launch App
-              </a>
+              <ComingSoonOverlay>
+                <a
+                  href="#"
+                  className="bg-[#4A7C59]/50 text-white/50 px-6 py-3 tracking-wider uppercase text-xl cursor-not-allowed font-geo"
+                >
+                  Launch App
+                </a>
+              </ComingSoonOverlay>
             )}
 
             {isMenuOpen && disconnectWallet && (
@@ -228,12 +231,14 @@ const Header: React.FC<HeaderProps> = ({
                       </button>
                     )
                   ) : (
-                    <a
-                      href="#"
-                      className="bg-[#4A7C59] text-white px-6 py-3 tracking-wider uppercase text-xl cursor-not-allowed font-geo"
-                    >
-                      Launch App
-                    </a>
+                    <ComingSoonOverlay>
+                      <a
+                        href="#"
+                        className="bg-[#4A7C59]/50 text-white/50 px-6 py-3 tracking-wider uppercase text-xl cursor-not-allowed font-geo"
+                      >
+                        Launch App
+                      </a>
+                    </ComingSoonOverlay>
                   )}
                 </div>
               </div>
