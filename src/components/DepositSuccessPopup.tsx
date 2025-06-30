@@ -1,6 +1,5 @@
 "use client";
 import { useEffect } from "react";
-import { geo } from "@/utils/fonts";
 import ShareButton from "@/components/ShareButton";
 
 interface DepositSuccessPopupProps {
@@ -98,13 +97,13 @@ export default function DepositSuccessPopup({
             </div>
 
             <h2
-              className={`text-2xl font-bold text-[#4A7C59] mb-2 ${geo.className}`}
+              className={`text-2xl font-bold text-[#4A7C59] mb-2`}
             >
               DEPOSIT SUCCESSFUL!
             </h2>
 
             <div
-              className={`text-[#4A7C59] font-bold text-lg mb-4 ${geo.className}`}
+              className={`text-[#4A7C59] font-bold text-lg mb-4`}
             >
               <span className="inline-block animate-pulse">💚</span> Thank you
               for your support!{" "}
@@ -115,7 +114,7 @@ export default function DepositSuccessPopup({
           {/* Purchase Summary */}
           <div className="bg-[#4A7C59]/10 border border-[#4A7C59]/30 p-4 space-y-3">
             <h3
-              className={`text-lg font-bold text-[#F5F5F5] mb-3 ${geo.className}`}
+              className={`text-lg font-bold text-[#F5F5F5] mb-3`}
             >
               PURCHASE SUMMARY
             </h3>
@@ -178,7 +177,7 @@ export default function DepositSuccessPopup({
           {/* Close Button */}
           <button
             onClick={onClose}
-            className={`w-full py-3 px-6 bg-[#4A7C59] hover:bg-[#5A8B69] text-white font-bold tracking-wider uppercase transition-colors ${geo.className}`}
+            className={`w-full py-3 px-6 bg-[#4A7C59] hover:bg-[#5A8B69] text-white font-bold tracking-wider uppercase transition-colors`}
           >
             CONTINUE
           </button>

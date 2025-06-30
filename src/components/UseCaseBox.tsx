@@ -1,63 +1,26 @@
 "use client";
-import { useState } from "react";
-import { geo } from "@/utils/fonts";
 
-// Expandable Use Case Box
-const UseCaseBox = ({
-  title,
-  tokens,
-  summary,
-  details,
-}: {
+interface UseCaseBoxProps {
   title: string;
-  tokens: string[];
-  summary: string;
-  details: string;
-}) => {
-  const [flipped, setFlipped] = useState(false);
+  description: string;
+}
+
+const UseCaseBox: React.FC<UseCaseBoxProps> = ({ title, description }) => {
   return (
-    <div
-      className="h-80 w-full [perspective:2000px]"
-      onMouseEnter={() => setFlipped(true)}
-      onMouseLeave={() => setFlipped(false)}
-      tabIndex={0}
-      onFocus={() => setFlipped(true)}
-      onBlur={() => setFlipped(false)}
-    >
-      <div
-        className={`relative w-full h-full transition-all duration-300 [transform-style:preserve-3d] ${
-          flipped ? "[transform:rotateY(180deg)]" : "[transform:rotateY(0deg)]"
-        }`}
-      >
-        {/* Front Side */}
-        <div className="absolute inset-0 h-full w-full bg-[#1A1A1A]/90 backdrop-blur-sm p-6 pt-10 border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors flex flex-col items-center justify-center relative [backface-visibility:hidden]">
-          <span
-            className={`text-3xl text-[#4A7C59] text-center uppercase tracking-wider font-semibold ${geo.className}`}
-          >
+    <div className="flip-card relative w-full h-64 cursor-pointer hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+      <div className="flip-card-inner w-full h-full">
+        {/* Front of card */}
+        <div className="flip-card-front bg-[#1A1A1A]/80 backdrop-blur-sm border border-[#4A7C59]/50 p-6 flex flex-col items-center justify-center text-center hover:border-[#4A7C59] hover:shadow-[0_0_20px_rgba(74,124,89,0.3)]">
+          <h3 className="text-xl font-geo tracking-wider text-[#F5F5F5]">
             {title}
-          </span>
-          <svg
-            className="w-5 h-5 mt-6 text-[#F5F5F5]/60"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
+          </h3>
         </div>
-        {/* Back Side */}
-        <div className="absolute inset-0 h-full w-full bg-[#1A1A1A]/90 backdrop-blur-sm p-6 pt-10 border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors flex flex-col items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
-          <div className="text-[#F5F5F5]/80 text-base leading-relaxed mb-2 text-center">
-            {summary}
-          </div>
-          <div className="text-[#F5F5F5]/60 text-sm leading-relaxed text-center">
-            {details}
-          </div>
+
+        {/* Back of card */}
+        <div className="flip-card-back bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/50 p-6 flex flex-col items-center justify-center text-center hover:border-[#4A7C59] hover:shadow-[0_0_20px_rgba(74,124,89,0.3)]">
+          <p className="text-sm text-[#F5F5F5]/80 font-light leading-relaxed mb-3">
+            {description}
+          </p>
         </div>
       </div>
     </div>

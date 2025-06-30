@@ -1,5 +1,4 @@
 "use client";
-import { geo } from "@/utils/fonts";
 import FlipCard from "./FlipCard";
 
 const FeaturesSection = () => {
@@ -16,7 +15,7 @@ const FeaturesSection = () => {
       </div>
       <div className="container mx-auto px-6 py-24">
         <h2
-          className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase ${geo.className}`}
+          className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase font-geo`}
         >
           Fully Backed and Redeemable Tokens
         </h2>
@@ -25,12 +24,12 @@ const FeaturesSection = () => {
             <div className="lg:col-span-2">
               <div className="text-center w-full max-w-4xl mx-auto h-full p-6 pt-10 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors relative">
                 <div
-                  className={`text-3xl md:text-4xl mb-6 text-[#4A7C59] ${geo.className}`}
+                  className={`text-3xl md:text-4xl mb-6 text-[#4A7C59] font-geo`}
                 >
                   ZHE TOKENS
                 </div>
-                <p className="text-[#F5F5F5]/70 leading-relaxed tracking-wide font-light mb-8">
-                  High yield pegged tokens that track price feeds with 1:1, with
+                <p className="text-[#F5F5F5]/70 leading-relaxed tracking-wide font-normal mb-8">
+                  High yield pegged tokens that track price feeds 1:1, with
                   built in real yield via stability pools
                 </p>
                 {/* Scrolling green flip cards */}
@@ -88,11 +87,11 @@ const FeaturesSection = () => {
             <div className="lg:col-span-2">
               <div className="text-center w-full max-w-4xl mx-auto h-full p-6 pt-10 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors relative">
                 <div
-                  className={`text-3xl md:text-4xl mb-6 text-[#4A7C59] ${geo.className}`}
+                  className={`text-3xl md:text-4xl mb-6 text-[#4A7C59] font-geo`}
                 >
                   STEAMED TOKENS
                 </div>
-                <p className="text-[#F5F5F5]/70 leading-relaxed tracking-wide font-light mb-8">
+                <p className="text-[#F5F5F5]/70 leading-relaxed tracking-wide font-normal mb-8">
                   Get supercharged market exposure through liquidation-protected
                   variable leverage tokens
                 </p>

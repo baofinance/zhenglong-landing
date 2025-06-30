@@ -1,5 +1,4 @@
 "use client";
-import { geo } from "@/utils/fonts";
 import ComingSoonOverlay from "./ComingSoonOverlay";
 
 const SteamTokenSection = () => {
@@ -15,7 +14,7 @@ const SteamTokenSection = () => {
       </div>
       <div className="container mx-auto px-6 py-24">
         <h2
-          className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase ${geo.className}`}
+          className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase font-geo`}
         >
           STEAM Token
         </h2>
@@ -28,7 +27,7 @@ const SteamTokenSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-6">
               <h3
-                className={`text-3xl text-[#4A7C59] mb-4 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                className={`text-3xl text-[#4A7C59] mb-4 text-center uppercase tracking-wider font-normal font-geo`}
               >
                 Revenue Share
               </h3>
@@ -38,7 +37,7 @@ const SteamTokenSection = () => {
             </div>
             <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-6">
               <h3
-                className={`text-3xl text-[#4A7C59] mb-4 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                className={`text-3xl text-[#4A7C59] mb-4 text-center uppercase tracking-wider font-normal font-geo`}
               >
                 Boost Rewards
               </h3>
@@ -49,7 +48,7 @@ const SteamTokenSection = () => {
             </div>
             <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-6">
               <h3
-                className={`text-3xl text-[#4A7C59] mb-4 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                className={`text-3xl text-[#4A7C59] mb-4 text-center uppercase tracking-wider font-normal font-geo`}
               >
                 Governance Rights
               </h3>
@@ -62,14 +61,14 @@ const SteamTokenSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full mt-8">
             <ComingSoonOverlay>
               <button
-                className={`bg-black/50 text-[#F5F5F5]/50 px-8 py-4 tracking-wider uppercase text-lg cursor-not-allowed ${geo.className}`}
+                className={`bg-[#4A7C59]/50 text-[#F5F5F5]/50 px-8 py-4 tracking-wider uppercase text-lg cursor-not-allowed font-geo`}
               >
                 Get STEAM
               </button>
             </ComingSoonOverlay>
             <ComingSoonOverlay>
               <button
-                className={`bg-[#4A7C59]/50 text-[#F5F5F5]/50 px-8 py-4 tracking-wider uppercase text-lg cursor-not-allowed ${geo.className}`}
+                className={`bg-[#4A7C59]/50 text-[#F5F5F5]/50 px-8 py-4 tracking-wider uppercase text-lg cursor-not-allowed font-geo`}
               >
                 Earn STEAM
               </button>

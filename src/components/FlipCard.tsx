@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { geo } from "@/utils/fonts";
 
 // Replace the static green cards with flip cards
 const FlipCard = ({
@@ -18,7 +17,7 @@ const FlipCard = ({
   const [flipped, setFlipped] = useState(false);
   return (
     <div
-      className={`w-48 h-16 cursor-pointer [perspective:1000px] ${className}`}
+      className={`w-48 h-16 cursor-pointer [perspective:1000px] group transition-transform duration-300 ease-out hover:-translate-y-1 hover:scale-105 ${className}`}
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
       tabIndex={0}
@@ -32,9 +31,9 @@ const FlipCard = ({
         }`}
       >
         {/* Front Side */}
-        <div className="absolute inset-0 w-full h-full bg-[#4A7C59] shadow flex items-center justify-center [backface-visibility:hidden]">
+        <div className="absolute inset-0 w-full h-full bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59] shadow-[0_0_6px_0_rgba(74,124,89,0.4)] group-hover:shadow-[0_0_12px_2px_rgba(74,124,89,0.6)] transition-all duration-300 flex items-center justify-center [backface-visibility:hidden]">
           <span
-            className={`text-white text-lg font-semibold tracking-wider break-words text-center ${geo.className}`}
+            className={`text-[#4A7C59] text-lg font-normal tracking-wider break-words text-center font-geo`}
           >
             {(() => {
               if (token.startsWith("zhe")) {

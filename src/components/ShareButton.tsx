@@ -1,6 +1,5 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
-import { geo } from "@/utils/fonts";
 
 export default function ShareButton() {
   const [open, setOpen] = useState(false);
@@ -45,7 +44,7 @@ export default function ShareButton() {
     <div className="relative inline-block">
       <button
         onClick={() => setOpen((v) => !v)}
-        className={`inline-flex items-center gap-2 px-4 py-2 bg-[#1A1A1A] border border-[#4A7C59] text-[#4A7C59] font-bold uppercase tracking-wider ${geo.className} hover:bg-[#4A7C59]/10 focus:outline-none focus:ring-2 focus:ring-[#4A7C59] transition-colors`}
+        className={`inline-flex items-center gap-2 px-4 py-2 bg-[#1A1A1A] border border-[#4A7C59] text-[#4A7C59] font-bold uppercase tracking-wider hover:bg-[#4A7C59]/10 focus:outline-none focus:ring-2 focus:ring-[#4A7C59] transition-colors`}
         style={{ borderRadius: 0 }}
         aria-label="Share"
       >

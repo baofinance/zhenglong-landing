@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { spaceGrotesk, geo } from "@/utils/fonts";
 import "./globals.css";
 import { TransactionProvider } from "@/contexts/Transactions";
 import NotificationWrapper from "@/components/NotificationWrapper";
 import { Analytics } from "@vercel/analytics/next";
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Zhenglong Protocol",
@@ -21,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${spaceGrotesk.className} antialiased`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${geo.variable}`}>
+      <body className="font-sans antialiased">
         <TransactionProvider>
           <NotificationWrapper />
           {children}

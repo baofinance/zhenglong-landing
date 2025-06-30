@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Space Grotesk", "sans-serif"],
-        geo: ["Geo", "sans-serif"],
+        sans: ["var(--font-space-grotesk)", "sans-serif"],
+        geo: ["var(--font-geo)", "sans-serif"],
       },
       keyframes: {
         "steam-1": {

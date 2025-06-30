@@ -1,5 +1,4 @@
 "use client";
-import { geo } from "@/utils/fonts";
 
 interface UserPositionProps {
   walletAddress: string;
@@ -17,7 +16,7 @@ export default function UserPosition({
     <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-8 h-full">
       <div className="space-y-6">
         <div className="text-center">
-          <h3 className={`text-3xl font-bold text-[#4A7C59] ${geo.className}`}>
+          <h3 className={`text-3xl font-bold text-[#4A7C59]`}>
             YOUR POSITION
           </h3>
         </div>
@@ -42,7 +41,7 @@ export default function UserPosition({
                     Deposited
                   </div>
                   <div
-                    className={`text-[#4A7C59] font-semibold text-2xl ${geo.className}`}
+                    className={`text-[#4A7C59] font-semibold text-2xl`}
                   >
                     ${userDeposited.toFixed(2)} USDC
                   </div>
@@ -52,7 +51,7 @@ export default function UserPosition({
                     Est. STEAM Tokens
                   </div>
                   <div
-                    className={`text-[#4A7C59] font-semibold text-2xl ${geo.className}`}
+                    className={`text-[#4A7C59] font-semibold text-2xl`}
                   >
                     {(userDeposited * 12.5).toLocaleString()}
                   </div>

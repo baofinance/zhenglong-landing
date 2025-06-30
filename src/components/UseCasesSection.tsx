@@ -1,8 +1,106 @@
 "use client";
-import { geo } from "@/utils/fonts";
+// Removed useState import as flip state is handled within each card
 import UseCaseBox from "./UseCaseBox";
 
 const UseCasesSection = () => {
+  const useCases = [
+    {
+      title: "Weather Derivatives",
+      description:
+        "Farmers hedge against drought or excessive rainfall; insurers offer coverage without centralized providers.",
+      icon: "/weather.svg",
+    },
+    {
+      title: "Carbon Credit & ESG Tokens",
+      description:
+        "Businesses offset carbon exposure directly via DeFi, incentivizing green initiatives.",
+      icon: "/content.svg",
+    },
+    {
+      title: "Equity Indices",
+      description:
+        "DeFi traders gain exposure to equities without leaving crypto ecosystems.",
+      icon: "/file.svg",
+    },
+    {
+      title: "Individual Stock Tokens",
+      description:
+        "Global accessibility to popular stocks, especially for users in restricted jurisdictions.",
+      icon: "/rocket.svg",
+    },
+    {
+      title: "Athlete Performance Metrics",
+      description:
+        "Fans gain financial exposure to athlete performance, boosting engagement.",
+      icon: "/social.svg",
+    },
+    {
+      title: "Music & Streaming Revenue",
+      description:
+        "Artists tokenize future royalties, allowing direct fan investment.",
+      icon: "/content.svg",
+    },
+    {
+      title: "Inflation & CPI Tokens",
+      description:
+        "Users hedge against inflation risk directly on-chain, protecting their purchasing power.",
+      icon: "/pricefeed.svg",
+    },
+    {
+      title: "GDP Growth Tokens",
+      description:
+        "Economists or investors hedge against or speculate on economic growth data.",
+      icon: "/funding.svg",
+    },
+    {
+      title: "AI & Machine Learning Performance",
+      description:
+        "Investors gain exposure to AI advancements, rewarding R&D success transparently.",
+      icon: "/automated.svg",
+    },
+    {
+      title: "Crypto Adoption Metrics",
+      description:
+        "Speculate on crypto adoption growth without investing in a single asset.",
+      icon: "/community.svg",
+    },
+    {
+      title: "Precious Metals",
+      description:
+        "Store of value alternatives or hedging instruments fully backed by crypto collateral.",
+      icon: "/collateral.svg",
+    },
+    {
+      title: "Energy Commodities",
+      description:
+        "Traders or companies hedge energy exposure directly through DeFi markets.",
+      icon: "/leverage.svg",
+    },
+    {
+      title: "Foreign Currency Pegged Tokens",
+      description: "Global, decentralized FX markets accessible 24/7.",
+      icon: "/globe.svg",
+    },
+    {
+      title: "Emerging Market Currency Tokens",
+      description:
+        "Enable risk management or speculation on volatile emerging market currencies.",
+      icon: "/institution.svg",
+    },
+    {
+      title: "ETH Gas Price Tokens",
+      description:
+        "Hedge transaction fee exposure or speculate on Ethereum congestion.",
+      icon: "/yield.svg",
+    },
+    {
+      title: "NFT Floor Price Tokens",
+      description:
+        "Traders speculate or hedge NFT market exposure without direct NFT holdings.",
+      icon: "/art.svg",
+    },
+  ];
+
   return (
     <section className="relative z-10">
       <div className="absolute inset-0 pointer-events-none">
@@ -15,115 +113,26 @@ const UseCasesSection = () => {
       </div>
       <div className="container mx-auto px-6 py-24">
         <h2
-          className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase ${geo.className}`}
+          className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase font-geo`}
         >
           Use Cases
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
-          <UseCaseBox
-            title="Weather Derivatives"
-            tokens={["zheRAIN"]}
-            summary="Farmers hedge against drought or excessive rainfall; insurers offer coverage without centralized providers."
-            details="Pegged to rainfall or weather indices, zheRAIN enables decentralized weather risk management for agriculture and insurance markets."
-          />
-          <UseCaseBox
-            title="Carbon Credit & ESG Tokens"
-            tokens={["zheCO2"]}
-            summary="Businesses offset carbon exposure directly via DeFi, incentivizing green initiatives."
-            details="zheCO2 tracks global carbon prices, allowing companies to offset emissions and participate in ESG markets on-chain."
-          />
-          <UseCaseBox
-            title="Equity Indices"
-            tokens={["zheSPX", "zheNDX"]}
-            summary="DeFi traders gain exposure to equities without leaving crypto ecosystems."
-            details="Synthetic tokens like zheSPX and zheNDX track S&P 500 and Nasdaq indices, enabling global, 24/7 access to equity markets."
-          />
-          <UseCaseBox
-            title="Individual Stock Tokens"
-            tokens={["zheTSLA", "zheAAPL"]}
-            summary="Global accessibility to popular stocks, especially for users in restricted jurisdictions."
-            details="zheTSLA and zheAAPL provide synthetic exposure to Tesla and Apple, democratizing access to top equities."
-          />
-          <UseCaseBox
-            title="Athlete Performance Metrics"
-            tokens={["zheGOALS"]}
-            summary="Fans gain financial exposure to athlete performance, boosting engagement."
-            details="zheGOALS is pegged to athlete stats, letting fans and traders speculate on or hedge against sports performance."
-          />
-          <UseCaseBox
-            title="Music & Streaming Revenue"
-            tokens={["zheSTREAM"]}
-            summary="Artists tokenize future royalties, allowing direct fan investment."
-            details="zheSTREAM tracks streaming revenue indexes or royalties, opening new funding models for creators."
-          />
-          <UseCaseBox
-            title="Inflation & CPI Tokens"
-            tokens={["zheCPI"]}
-            summary="Users hedge against inflation risk directly on-chain, protecting their purchasing power."
-            details="zheCPI is pegged to consumer price indices, enabling on-chain inflation hedging for DeFi users."
-          />
-          <UseCaseBox
-            title="GDP Growth Tokens"
-            tokens={["zheGDP"]}
-            summary="Economists or investors hedge against or speculate on economic growth data."
-            details="zheGDP tracks GDP growth, allowing macro speculation and risk management on-chain."
-          />
-          <UseCaseBox
-            title="AI & Machine Learning Performance"
-            tokens={["zheAI"]}
-            summary="Investors gain exposure to AI advancements, rewarding R&D success transparently."
-            details="zheAI is pegged to AI performance benchmarks, letting users invest in the growth of AI technology."
-          />
-          <UseCaseBox
-            title="Crypto Adoption Metrics"
-            tokens={["zheADOPT"]}
-            summary="Speculate on crypto adoption growth without investing in a single asset."
-            details="zheADOPT tracks blockchain adoption or transaction metrics, enabling new ways to bet on crypto's future."
-          />
-          <UseCaseBox
-            title="Precious Metals"
-            tokens={["zheGOLD", "zheSILVER"]}
-            summary="Store of value alternatives or hedging instruments fully backed by crypto collateral."
-            details="zheGOLD and zheSILVER provide synthetic, on-chain exposure to gold and silver prices."
-          />
-          <UseCaseBox
-            title="Energy Commodities"
-            tokens={["zheOIL", "zheGAS"]}
-            summary="Traders or companies hedge energy exposure directly through DeFi markets."
-            details="zheOIL and zheGAS track oil and natural gas prices, bringing energy markets to DeFi."
-          />
-          <UseCaseBox
-            title="Foreign Currency Pegged Tokens"
-            tokens={["zheEUR", "zheJPY"]}
-            summary="Global, decentralized FX markets accessible 24/7."
-            details="zheEUR and zheJPY enable on-chain trading and hedging of major fiat currencies."
-          />
-          <UseCaseBox
-            title="Emerging Market Currency Tokens"
-            tokens={["zheINR", "zheBRL"]}
-            summary="Enable risk management or speculation on volatile emerging market currencies."
-            details="zheINR and zheBRL bring emerging market FX exposure to DeFi, expanding global access."
-          />
-          <UseCaseBox
-            title="ETH Gas Price Tokens"
-            tokens={["zheGAS"]}
-            summary="Hedge transaction fee exposure or speculate on Ethereum congestion."
-            details="zheGAS is pegged to Ethereum gas prices, letting users hedge or speculate on network fees."
-          />
-          <UseCaseBox
-            title="NFT Floor Price Tokens"
-            tokens={["zheNFT"]}
-            summary="Traders speculate or hedge NFT market exposure without direct NFT holdings."
-            details="zheNFT tracks floor prices of top NFT collections (e.g., CryptoPunks, BAYC), enabling new NFT market strategies."
-          />
+          {useCases.map((useCase, index) => (
+            <UseCaseBox
+              key={index}
+              title={useCase.title}
+              description={useCase.description}
+            />
+          ))}
         </div>
         <div className="mt-12 text-center">
-          <p className="text-[#F5F5F5]/80 leading-relaxed tracking-wide font-light max-w-3xl mx-auto">
-            These examples show just a few ways Zhenglong Protocol could
-            empower innovation by turning any reliable data source into a
-            secure, yield-generating pegged token market. The flexibility
-            is huge—and as long as there's reliable price data and market
-            demand, Zhenglong can tokenize it.
+          <p className="text-[#F5F5F5]/80 leading-relaxed tracking-wide font-normal max-w-3xl mx-auto">
+            These examples show just a few ways Zhenglong Protocol could empower
+            innovation by turning any reliable data source into a secure,
+            yield-generating pegged token market. The flexibility is huge—and as
+            long as there's reliable price data and market demand, Zhenglong can
+            tokenize it.
           </p>
         </div>
       </div>
@@ -131,4 +140,4 @@ const UseCasesSection = () => {
   );
 };
 
-export default UseCasesSection; 
+export default UseCasesSection;

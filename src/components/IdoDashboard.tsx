@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import { geo } from "@/utils/fonts";
 
 // Type declarations for Ethereum provider
 declare global {
@@ -315,7 +314,7 @@ export default function IdoDashboard() {
           <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
             Tokens Sold
           </div>
-          <div className={`text-[#4A7C59] text-2xl font-bold ${geo.className}`}>
+          <div className={`text-[#4A7C59] text-2xl font-bold`}>
             {formatNumber(contractData.tokensSold)}
           </div>
           <div className="text-[#F5F5F5]/40 text-xs">
@@ -327,7 +326,7 @@ export default function IdoDashboard() {
           <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
             Total Raised
           </div>
-          <div className={`text-[#4A7C59] text-2xl font-bold ${geo.className}`}>
+          <div className={`text-[#4A7C59] text-2xl font-bold`}>
             ${formatNumber(contractData.totalRaised, 6)}
           </div>
           <div className="text-[#F5F5F5]/40 text-xs">USDC raised</div>
@@ -337,7 +336,7 @@ export default function IdoDashboard() {
           <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
             Participants
           </div>
-          <div className={`text-[#4A7C59] text-2xl font-bold ${geo.className}`}>
+          <div className={`text-[#4A7C59] text-2xl font-bold`}>
             {contractData.totalParticipants.toLocaleString()}
           </div>
           <div className="text-[#F5F5F5]/40 text-xs">unique wallets</div>
@@ -347,7 +346,7 @@ export default function IdoDashboard() {
           <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
             Time Left
           </div>
-          <div className={`text-[#4A7C59] text-2xl font-bold ${geo.className}`}>
+          <div className={`text-[#4A7C59] text-2xl font-bold`}>
             {isMounted ? timeRemaining : "Loading..."}
           </div>
           <div className="text-[#F5F5F5]/40 text-xs">until sale ends</div>
@@ -357,12 +356,12 @@ export default function IdoDashboard() {
         <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-8 hover:border-[#4A7C59]/40 transition-colors">
           <div className="flex items-center justify-between mb-2">
             <h3
-              className={`text-base font-bold text-[#F5F5F5] ${geo.className}`}
+              className={`text-base font-bold text-[#F5F5F5]`}
             >
               Eligibility Info
             </h3>
             <span
-              className={`relative group inline-flex items-center gap-1 px-3 py-1 text-xs font-bold tracking-wider uppercase border text-[#4A7C59] border-[#4A7C59]/30 bg-[#4A7C59]/10 ${geo.className}`}
+              className={`relative group inline-flex items-center gap-1 px-3 py-1 text-xs font-bold tracking-wider uppercase border text-[#4A7C59] border-[#4A7C59]/30 bg-[#4A7C59]/10`}
             >
               UPDATED DAILY
               <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max px-3 py-2 text-xs bg-[#1A1A1A] border border-[#4A7C59]/30 text-[#F5F5F5] rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
@@ -414,7 +413,7 @@ export default function IdoDashboard() {
 
         <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-8 hover:border-[#4A7C59]/40 transition-colors">
           <h3
-            className={`text-base font-bold text-[#F5F5F5] mb-2 ${geo.className}`}
+            className={`text-base font-bold text-[#F5F5F5] mb-2`}
           >
             Pricing & Allocation
           </h3>

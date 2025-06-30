@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { geo } from "@/utils/fonts";
 
 const BoosterProgramSection = () => {
   return (
@@ -15,7 +14,7 @@ const BoosterProgramSection = () => {
       </div>
       <div className="container mx-auto px-6 py-24">
         <h2
-          className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase ${geo.className}`}
+          className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase font-geo`}
         >
           Community Booster Program
         </h2>
@@ -40,7 +39,7 @@ const BoosterProgramSection = () => {
                   />
                 </div>
                 <h3
-                  className={`text-3xl text-[#4A7C59] mb-3 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                  className={`text-3xl text-[#4A7C59] mb-3 text-center uppercase tracking-wider font-normal font-geo`}
                 >
                   Social Media
                 </h3>
@@ -58,7 +57,7 @@ const BoosterProgramSection = () => {
                   />
                 </div>
                 <h3
-                  className={`text-3xl text-[#4A7C59] mb-3 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                  className={`text-3xl text-[#4A7C59] mb-3 text-center uppercase tracking-wider font-normal font-geo`}
                 >
                   Content Creation
                 </h3>
@@ -76,7 +75,7 @@ const BoosterProgramSection = () => {
                   />
                 </div>
                 <h3
-                  className={`text-3xl text-[#4A7C59] mb-3 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                  className={`text-3xl text-[#4A7C59] mb-3 text-center uppercase tracking-wider font-normal font-geo`}
                 >
                   Art & Memes
                 </h3>
@@ -93,7 +92,7 @@ const BoosterProgramSection = () => {
                   />
                 </div>
                 <h3
-                  className={`text-3xl text-[#4A7C59] mb-3 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                  className={`text-3xl text-[#4A7C59] mb-3 text-center uppercase tracking-wider font-normal font-geo`}
                 >
                   Community Building
                 </h3>
@@ -109,7 +108,7 @@ const BoosterProgramSection = () => {
               <p className="text-lg md:text-xl text-[#F5F5F5] leading-relaxed tracking-wider font-light">
                 <span className="block mb-2">
                   <span
-                    className={`text-3xl md:text-5xl font-medium text-[#4A7C59] border-b border-[#4A7C59]/50 pb-1 ${geo.className}`}
+                    className={`text-3xl md:text-5xl font-medium text-[#4A7C59] border-b border-[#4A7C59]/50 pb-1 font-geo`}
                   >
                     3%
                   </span>
@@ -127,7 +126,7 @@ const BoosterProgramSection = () => {
                 <div className="flex flex-col items-center justify-center text-center">
                   <div className="space-y-3">
                     <div
-                      className={`text-3xl text-[#4A7C59] uppercase ${geo.className}`}
+                      className={`text-3xl text-[#4A7C59] uppercase font-geo`}
                     >
                       Become a Booster
                     </div>
@@ -140,7 +139,7 @@ const BoosterProgramSection = () => {
                         href="https://discord.com/invite/BW3P62vJXT"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`inline-block bg-[#4A7C59] hover:bg-[#4A7C59]/80 text-[#F5F5F5] px-8 py-3 tracking-wider uppercase text-lg transition-colors ${geo.className}`}
+                        className={`inline-block bg-[#4A7C59] hover:bg-[#4A7C59]/80 text-[#F5F5F5] px-8 py-3 tracking-wider uppercase text-lg transition-colors font-geo`}
                       >
                         Join Program
                       </Link>

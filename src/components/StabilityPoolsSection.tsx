@@ -1,5 +1,4 @@
 "use client";
-import { geo } from "@/utils/fonts";
 import ComingSoonOverlay from "./ComingSoonOverlay";
 
 const StabilityPoolsSection = () => {
@@ -15,9 +14,9 @@ const StabilityPoolsSection = () => {
       </div>
       <div className="container mx-auto px-6 py-24">
         <h2
-          className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase ${geo.className}`}
+          className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase font-geo`}
         >
-          Stability Pools: Security & Yield
+          Stability Pools: Get rewarded for securing the market.
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12 mb-16">
@@ -25,49 +24,29 @@ const StabilityPoolsSection = () => {
           <div className="space-y-8 h-full">
             <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-8 min-h-[400px] flex flex-col">
               <h3
-                className={`text-3xl text-[#4A7C59] mb-6 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                className={`text-3xl text-[#4A7C59] mb-6 text-center uppercase tracking-wider font-normal font-geo`}
               >
-                Protocol Security
+                Market Solvency
               </h3>
               <div className="space-y-6 flex-1">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 mt-1 bg-[#4A7C59] flex-shrink-0 flex items-center justify-center">
-                    <img
-                      src="/stability.svg"
-                      alt="Stability Icon"
-                      className="w-8 h-8"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-lg mb-2 text-[#F5F5F5]">
-                      Stability Mechanism
-                    </h4>
-                    <p className="text-[#F5F5F5]/70 leading-relaxed">
-                      Stability pools act as a stability mechanism by
-                      automatically adjusting collateral ratios during market
-                      stress, ensuring protocol solvency.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 mt-1 bg-[#4A7C59] flex-shrink-0 flex items-center justify-center">
-                    <img
-                      src="/rebalance.svg"
-                      alt="Rebalance Icon"
-                      className="w-8 h-8"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-lg mb-2 text-[#F5F5F5]">
-                      Automated Rebalancing
-                    </h4>
-                    <p className="text-[#F5F5F5]/70 leading-relaxed">
-                      When collateral ratios reach predefined thresholds, pools
-                      automatically swap tokens to maintain optimal system
-                      health.
-                    </p>
-                  </div>
-                </div>
+                <p className="text-[#F5F5F5]/80 leading-relaxed mb-4">
+                  When a market approaches its minimum collateral ratio (e.g.
+                  130%), Stability Pools kick in to rebalance.
+                </p>
+                <ul className="list-disc list-inside text-[#F5F5F5]/70 mb-4">
+                  <li>Redeemed for collateral at market value, or</li>
+                  <li>
+                    Swapped for steamedTOKENS (leveraged tokens) at market value
+                  </li>
+                </ul>
+                <p className="text-[#F5F5F5]/80 leading-relaxed mb-2">
+                  This controlled redemption improves the overall collateral
+                  ratio.
+                </p>
+                <p className="text-[#F5F5F5]/60 leading-relaxed italic">
+                  No margin calls. No liquidation cascades. Just resilient,
+                  automated stability.
+                </p>
               </div>
             </div>
           </div>
@@ -76,7 +55,7 @@ const StabilityPoolsSection = () => {
           <div className="space-y-8 h-full">
             <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-8 min-h-[400px] flex flex-col">
               <h3
-                className={`text-3xl text-[#4A7C59] mb-6 text-center uppercase tracking-wider font-semibold ${geo.className}`}
+                className={`text-3xl text-[#4A7C59] mb-6 text-center uppercase tracking-wider font-normal font-geo`}
               >
                 Yield Generation
               </h3>
@@ -128,7 +107,7 @@ const StabilityPoolsSection = () => {
         <div className="text-center">
           <ComingSoonOverlay className="inline-block">
             <button
-              className={`bg-[#4A7C59]/50 text-[#F5F5F5]/50 px-8 py-3 tracking-wider uppercase text-lg cursor-not-allowed ${geo.className}`}
+              className={`bg-[#4A7C59]/50 text-[#F5F5F5]/50 px-8 py-3 tracking-wider uppercase text-lg cursor-not-allowed font-geo`}
             >
               Explore Stability Pools
             </button>

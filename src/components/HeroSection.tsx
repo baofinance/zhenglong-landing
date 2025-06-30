@@ -2,7 +2,6 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import ComingSoonOverlay from "./ComingSoonOverlay";
-import { geo } from "@/utils/fonts";
 
 // Move messages outside the component to prevent re-creation on render
 const messages = [
@@ -21,6 +20,7 @@ const HeroSection = () => {
   const charIndexRef = useRef(0);
 
   const startTyping = () => {
+    console.log("startTyping called, currentPhase:", currentPhaseRef.current);
     if (currentPhaseRef.current >= messages.length) {
       setTimeout(() => setShowSplash(false), 500); // End splash
       return;
@@ -132,7 +132,7 @@ const HeroSection = () => {
           {showSplash ? (
             <div className="flex justify-center items-center w-full min-h-[14rem]">
               <div
-                className={`absolute top-8 right-8 text-[#F5F5F5]/60 text-sm tracking-wider uppercase ${geo.className} pointer-events-none`}
+                className={`absolute top-8 right-8 text-[#F5F5F5]/60 text-sm tracking-wider uppercase font-geo pointer-events-none`}
               >
                 Click anywhere to skip →
               </div>
@@ -140,14 +140,14 @@ const HeroSection = () => {
                 {/* 1. Invisible Sizer - includes a non-blinking cursor to reserve space */}
                 <div
                   aria-hidden="true"
-                  className={`invisible text-left row-start-1 col-start-1 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-[0.05em] sm:tracking-[0.1em] ${geo.className}`}
+                  className={`invisible text-left row-start-1 col-start-1 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-[0.05em] sm:tracking-[0.1em] font-geo`}
                 >
                   {longestMessage}
                   <span className="text-[#4A7C59]">|</span>
                 </div>
                 {/* 2. Visible Typing Text - with an opacity-blinking cursor */}
                 <div
-                  className={`text-left row-start-1 col-start-1 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#F5F5F5] tracking-[0.05em] sm:tracking-[0.1em] ${geo.className}`}
+                  className={`text-left row-start-1 col-start-1 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#F5F5F5] tracking-[0.05em] sm:tracking-[0.1em] font-geo`}
                 >
                   {displayText}
                   <span
@@ -163,18 +163,18 @@ const HeroSection = () => {
           ) : (
             <div className="min-h-[14rem]">
               <div
-                className={`text-2xl sm:text-3xl md:text-4xl text-[#F5F5F5]/80 mb-4 tracking-wider font-light transition-opacity duration-500 ${
+                className={`text-2xl sm:text-3xl md:text-4xl text-[#F5F5F5]/80 mb-4 tracking-wider font-normal transition-opacity duration-500 ${
                   heroAnimationPhase >= 1 && heroAnimationPhase < 3
                     ? "opacity-100"
                     : "opacity-0"
-                } ${geo.className}`}
+                } font-geo`}
               >
                 welcome to
               </div>
               <h1
                 className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#4A7C59] to-[#6B9E76] tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] uppercase transition-opacity duration-500 ${
                   heroAnimationPhase >= 2 ? "opacity-100" : "opacity-0"
-                } ${geo.className}`}
+                } font-geo`}
               >
                 ZHENGLONG
               </h1>
@@ -184,7 +184,7 @@ const HeroSection = () => {
                 }`}
               >
                 <p
-                  className={`text-xl md:text-2xl text-[#F5F5F5]/80 mb-8 tracking-wider font-light ${geo.className}`}
+                  className={`text-xl md:text-2xl text-[#F5F5F5]/80 mb-8 tracking-wider font-normal font-geo`}
                 >
                   Yield like never before, for EVERY asset. Leverage protected
                   from liquidation.
@@ -192,7 +192,7 @@ const HeroSection = () => {
                 <div className="flex justify-center gap-6">
                   <ComingSoonOverlay>
                     <button
-                      className={`bg-[#4A7C59]/50 text-[#F5F5F5]/50 px-8 py-3 tracking-wider uppercase text-lg cursor-not-allowed ${geo.className}`}
+                      className={`bg-[#4A7C59]/50 text-[#F5F5F5]/50 px-8 py-3 tracking-wider uppercase text-lg cursor-not-allowed font-geo`}
                     >
                       Get Started
                     </button>
@@ -201,7 +201,7 @@ const HeroSection = () => {
                     href="https://docs.zhenglong.finance"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`border border-[#4A7C59] text-[#F5F5F5] hover:bg-[#4A7C59]/20 px-8 py-3 tracking-wider uppercase text-lg transition-colors ${geo.className}`}
+                    className={`border border-[#4A7C59] text-[#F5F5F5] hover:bg-[#4A7C59]/20 px-8 py-3 tracking-wider uppercase text-lg transition-colors font-geo`}
                   >
                     Learn More
                   </Link>

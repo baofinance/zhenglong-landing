@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import { geo } from "@/utils/fonts";
 import useTransactionHandler from "@/hooks/useTransactionHandler";
 import { useTxReceiptUpdater } from "@/contexts/Transactions";
 import DepositSuccessPopup from "@/components/DepositSuccessPopup";
@@ -321,9 +320,7 @@ export default function IdoDeposit({
             </svg>
           </div>
           <div>
-            <h3
-              className={`text-2xl font-bold mb-2 text-[#4A7C59] ${geo.className}`}
-            >
+            <h3 className={`text-2xl font-normal mb-2 text-[#4A7C59] font-geo`}>
               CONNECT WALLET
             </h3>
             <p className="text-[#F5F5F5]/80 mb-6">
@@ -333,9 +330,9 @@ export default function IdoDeposit({
           <button
             onClick={connectWallet}
             disabled={isConnecting}
-            className={`py-4 px-8 bg-[#4A7C59] hover:bg-[#5A8B69] disabled:bg-[#4A7C59]/50 text-white font-bold tracking-wider uppercase transition-colors ${
-              geo.className
-            } ${isConnecting ? "animate-pulse" : ""}`}
+            className={`py-4 px-8 bg-[#4A7C59] hover:bg-[#5A8B69] disabled:bg-[#4A7C59]/50 text-white font-normal tracking-wider uppercase transition-colors font-geo ${
+              isConnecting ? "animate-pulse" : ""
+            }`}
           >
             {isConnecting ? "Connecting..." : "Connect Wallet"}
           </button>
@@ -348,7 +345,7 @@ export default function IdoDeposit({
     <div className="bg-[#1A1A1A]/90 border border-[#4A7C59]/20 p-8">
       <div className="space-y-6">
         <div className="text-center">
-          <h3 className={`text-3xl font-bold text-[#4A7C59] ${geo.className}`}>
+          <h3 className={`text-3xl font-normal text-[#4A7C59] font-geo`}>
             DEPOSIT USDC
           </h3>
           <div className="mt-2 flex items-center justify-center gap-3 text-sm">
@@ -356,9 +353,7 @@ export default function IdoDeposit({
               Connected: {walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}
             </span>
             <span
-              className={`inline-flex items-center gap-1 px-3 py-1 text-xs font-bold tracking-wider uppercase border ${
-                geo.className
-              } ${
+              className={`inline-flex items-center gap-1 px-3 py-1 text-xs font-normal tracking-wider uppercase border font-geo ${
                 isEligible
                   ? "text-[#4A7C59] border-[#4A7C59]/30 bg-[#4A7C59]/10"
                   : "text-red-400 border-red-400/30 bg-red-400/10"
@@ -435,7 +430,7 @@ export default function IdoDeposit({
               {!hasEnoughBalance ? (
                 <button
                   disabled={true}
-                  className={`w-full py-4 px-6 bg-red-600/50 text-white font-bold tracking-wider uppercase transition-colors cursor-not-allowed ${geo.className}`}
+                  className={`w-full py-4 px-6 bg-red-600/50 text-white font-normal tracking-wider uppercase transition-colors cursor-not-allowed font-geo`}
                 >
                   Insufficient Balance
                 </button>
@@ -443,7 +438,7 @@ export default function IdoDeposit({
                 <button
                   onClick={handleApprove}
                   disabled={isApproving || parsedAmount <= 0}
-                  className={`w-full py-4 px-6 bg-[#4A7C59] hover:bg-[#5A8B69] disabled:bg-[#4A7C59]/50 text-white font-bold tracking-wider uppercase transition-colors ${geo.className}`}
+                  className={`w-full py-4 px-6 bg-[#4A7C59] hover:bg-[#5A8B69] disabled:bg-[#4A7C59]/50 text-white font-normal tracking-wider uppercase transition-colors font-geo`}
                 >
                   {isApproving ? "Approving..." : "Approve USDC"}
                 </button>
@@ -451,7 +446,7 @@ export default function IdoDeposit({
                 <button
                   onClick={handleDeposit}
                   disabled={isApproving || parsedAmount <= 0 || !isEligible}
-                  className={`w-full py-4 px-6 bg-[#4A7C59] hover:bg-[#5A8B69] disabled:bg-[#4A7C59]/50 text-white font-bold tracking-wider uppercase transition-colors ${geo.className}`}
+                  className={`w-full py-4 px-6 bg-[#4A7C59] hover:bg-[#5A8B69] disabled:bg-[#4A7C59]/50 text-white font-normal tracking-wider uppercase transition-colors font-geo`}
                 >
                   {isApproving ? "Depositing..." : "Deposit USDC"}
                 </button>

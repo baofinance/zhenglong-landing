@@ -1,5 +1,4 @@
 "use client";
-import { geo } from "@/utils/fonts";
 
 // Coming Soon Component
 const ComingSoonOverlay = ({
@@ -14,7 +13,7 @@ const ComingSoonOverlay = ({
       {children}
       <div className="absolute inset-0 bg-black/80 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
         <span
-          className={`text-[#4A7C59] ${geo.className} tracking-wider whitespace-nowrap`}
+          className={`text-[#4A7C59] tracking-wider whitespace-nowrap`}
         >
           Coming Soon
         </span>

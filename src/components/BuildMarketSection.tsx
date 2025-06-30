@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { geo } from "@/utils/fonts";
 
 const BuildMarketSection = () => {
   return (
@@ -31,7 +30,7 @@ const BuildMarketSection = () => {
             </svg>
           </div>
           <h2
-            className={`text-3xl md:text-4xl font-normal text-center tracking-wider uppercase ${geo.className}`}
+            className={`text-3xl md:text-4xl font-normal text-center tracking-wider uppercase font-geo`}
           >
             Collaborate on a New Market
           </h2>
@@ -64,7 +63,7 @@ const BuildMarketSection = () => {
                 </div>
                 <div>
                   <h3
-                    className={`text-lg font-medium mb-2 tracking-wider uppercase text-[#4A7C59] ${geo.className}`}
+                    className={`text-lg font-medium mb-2 tracking-wider uppercase text-[#4A7C59] font-geo`}
                   >
                     Collateral Token
                   </h3>
@@ -92,7 +91,7 @@ const BuildMarketSection = () => {
                 </div>
                 <div>
                   <h3
-                    className={`text-lg font-medium mb-2 tracking-wider uppercase text-[#4A7C59] ${geo.className}`}
+                    className={`text-lg font-medium mb-2 tracking-wider uppercase text-[#4A7C59] font-geo`}
                   >
                     Price Feed
                   </h3>
@@ -108,7 +107,7 @@ const BuildMarketSection = () => {
                 href="https://discord.com/invite/BW3P62vJXT"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-block bg-[#4A7C59] hover:bg-[#4A7C59]/80 text-[#F5F5F5] px-8 py-4 tracking-wider uppercase text-lg transition-colors ${geo.className}`}
+                className={`inline-block bg-[#4A7C59] hover:bg-[#4A7C59]/80 text-[#F5F5F5] px-8 py-4 tracking-wider uppercase text-lg transition-colors font-geo`}
               >
                 Contact Us
               </Link>
